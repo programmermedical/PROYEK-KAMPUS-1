@@ -1,0 +1,1038 @@
+/**
+* Template Name: Knight
+* Updated: Mar 10 2023 with Bootstrap v5.2.3
+* Template URL: https://bootstrapmade.com/knight-free-bootstrap-theme/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #555555;
+}
+
+a {
+  text-decoration: none;
+  color: #7cc576;
+}
+
+a:hover {
+  color: #9ed49a;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: #000;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #fff;
+  color: #000;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Disable AOS delay on mobile
+--------------------------------------------------------------*/
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  height: 90px;
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+  background: url(../img/hero-bg.png);
+  box-shadow: 0 4px 10px -3px hsla(0, 0%, 100%, 0.507);
+}
+
+#header .logo h1 {
+  font-size: 28px;
+  margin: 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+#header .logo h1 a,
+#header .logo h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header .logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 40px;
+}
+
+@media (max-width: 992px) {
+  #header {
+    height: 70px;
+  }
+}
+
+.scrolled-offset {
+  margin-top: 90px;
+}
+
+@media (max-width: 992px) {
+  .scrolled-offset {
+    margin-top: 90px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/**
+* Desktop Navigation 
+*/
+.navbar {
+  padding: 0;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navbar li {
+  position: relative;
+}
+
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-size: 15px;
+  color: #ffffff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
+}
+
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover > a {
+  color: gold;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #000000;
+  box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.503);
+  transition: 0.3s;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  font-size: 15px;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover > a {
+  color: gold;
+}
+
+.navbar .dropdown:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+.navbar .btn-logout {
+  background: gold;
+  padding: 5px 10px;
+  margin-left: 35%;
+  border: solid #000;
+  border-radius: 5px;
+  font-weight: 600;
+  color: #000;
+  box-shadow: 0 0 10px #000, inset 0 0 5px;
+}
+
+/* .navbar .btn-logout {
+  background: none;
+  padding: 5px 10px;
+  margin-left: 35%;
+  border: double #fff;
+  border-radius: 3px;
+} */
+
+.navbar .btn-logout:hover {
+  transition: 0.5s;
+  border: solid #fff;
+  background: none;
+  box-shadow: 0 0 5px #fff, inset 0 0 5px #fff;
+}
+
+/* .navbar .btn-logout:hover {
+  transition: 0.5;
+  border: double gold;
+} */
+
+.navbar .btn-logout a {
+  padding: 0;
+  color: #000;
+  text-shadow: 0 0 2px #fff;
+}
+
+.navbar .btn-logout a:hover {
+  transition: 0.5s;
+  font-weight: 600;
+  color: #fff;
+}
+
+@media (max-width: 1640px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover > ul {
+    left: -100%;
+  }
+}
+
+/**
+* Mobile Navigation 
+*/
+.mobile-nav-toggle {
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #050505;
+}
+
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #151515;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover > a {
+  color: gold;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar-mobile .dropdown ul a:hover,
+.navbar-mobile .dropdown ul .active:hover,
+.navbar-mobile .dropdown ul li:hover > a {
+  color: gold;
+}
+
+.navbar-mobile .dropdown > .dropdown-active {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/hero-bg.png");
+  position: relative;
+}
+
+#hero .hero-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+}
+
+#hero .hero-logo {
+  margin-bottom: 30px;
+}
+
+#hero h1 {
+  margin: 0 0 30px 0;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 56px;
+  color: #fff;
+}
+
+#hero h2 {
+  color: #aeaeae;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+#hero .btn-login {
+  letter-spacing: 1px;
+  padding: 10px 0;
+  display: inline-block;
+  border-radius: 3px;
+  border: double;
+  margin: 10px;
+  background: #ffffff00;
+  color: gold;
+}
+
+#hero .btn-login:hover {
+  transition: 0.5s;
+  background: transparent;
+  border: double;
+  border-color: #ffffff;
+  box-shadow: 0 0 7px #fff, inset 0 0 7px #fff;
+}
+
+#hero .btn-login a {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 12px 30px;
+}
+
+#hero .btn-login a:hover {
+  transition: 0.5s;
+  padding: 12px 30px;
+  color: #ffffff;
+  font-weight: 400;
+  text-shadow: 0 0 2px #fff;
+  box-shadow: inset 0 0 4px #0000;
+}
+
+#hero a {
+  font-weight: 400;
+  color: gold;
+}
+#hero a:hover {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero h2 {
+    line-height: 22px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background-color: whitesmoke;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  color: #151515;
+}
+
+.section-title p {
+  margin-bottom: 0;
+  color: #aeaeae;
+}
+
+/*--------------------------------------------------------------
+# Insert Section
+--------------------------------------------------------------*/
+#insert {
+  width: 100%;
+  background: url("../img/hero-bg.png");
+  position: relative;
+  background-attachment: fixed;
+}
+
+/* #insert .container{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+} */
+
+.insert-form {
+  background: rgba(255, 255, 255, 0);
+  width: 60%;
+  margin: 0 auto;
+  padding: 55px;
+  border-radius: 5px;
+  border: double;
+  color: #fff;
+}
+
+input[type="text"],
+input[type="number"] {
+  background: #ffffff00;
+  color: #fff;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  background: #ffffff00;
+  color: #fff;
+  outline-color: #ffffff6c;
+}
+
+select[type="text"],
+select[type="number"] {
+  background: #00000000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+option {
+  background-color: #181616;
+}
+
+#insert .btn-submit {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: double;
+  background: #ffffff00;
+  color: #ffffff;
+}
+
+#insert .btn-submit:hover {
+  transition: 0.2s;
+  background: #ffffff00;
+  color: #1b3fc2;
+  /* color: #260f0f; */
+  font-weight: 500;
+  /* background: #ffffff; */
+  border: double;
+  border-color: #1b3fc2;
+  outline: #1b3fc265;
+  outline-width: 3px;
+  outline-style: solid;
+}
+
+#insert_admin .btn-submit {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: double;
+  background: #ffffff00;
+  color: #ffffff;
+}
+
+#insert_admin .btn-submit:hover {
+  transition: 0.2s;
+  background: #ffffff00;
+  color: #1b3fc2;
+  /* color: #260f0f; */
+  font-weight: 500;
+  /* background: #ffffff; */
+  border: double;
+  border-color: #1b3fc2;
+  outline: #1b3fc265;
+  outline-width: 3px;
+  outline-style: solid;
+}
+
+/* # Table Section --------------------------------------------------------------*/
+
+.table1 {
+  font-family: sans-serif;
+  color: #eeeeee;
+  /* border: solid #fff; */
+  box-shadow: 0 0 5px #fff;
+  border-collapse: collapse;
+  width: 100%;
+  /* border: 1px solid #f2f5f7; */
+  margin: -25px auto 10px auto;
+}
+
+.table1 th {
+  background: #000000;
+  color: #fff;
+  font-weight: 700;
+}
+
+.table1,
+th,
+td {
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.table1 tr:hover {
+  background-color: #ddff0035;
+  transition: 0.1s;
+}
+
+.table1 tr:nth-child(even) {
+  background-color: #0000007e;
+  color: #fff;
+}
+
+.table1 tr:nth-child(even):hover {
+  background-color: #ddff0035;
+}
+
+.btn-option {
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 3px 13px;
+  border-radius: 3px;
+  border: double;
+  margin: 0;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.btn-option:hover {
+  transition: 0.2s;
+  background: #ffffff00;
+  color: #fff;
+  font-weight: 600;
+  border: double;
+  border-color: #fff;
+}
+
+.conf-jadwal {
+  margin: 45px 0 0 0;
+}
+
+.table-prodi h4 {
+  font-family: "Helvetica", sans-serif;
+  margin: 30px auto 25px 0;
+  color: #fff;
+  width: 20%;
+  left: 10%;
+  padding: 2px 0 4px 0;
+  background: #000;
+  box-shadow: 0 0 5px;
+}
+
+.file-download {
+  text-align: right;
+  color: #151515;
+  text-decoration: underline;
+}
+
+.file-download:hover {
+  color: #4e4e4e;
+  text-decoration: underline;
+}
+/* # Footer --------------------------------------------------------------*/
+
+#footer {
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/hero-bg.png);
+  position: relative;
+}
+
+#footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+v {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+}
+
+#footer .footer-top {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 80px 0;
+}
+#footer .footer-top .footer-logo img {
+  height: 80px;
+}
+
+#footer .footer-top h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  padding: 30px 0 0 0;
+  margin-bottom: 0;
+}
+
+#footer .footer-top p a {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 30px 0 0 0;
+  padding: 0;
+  color: #fff;
+}
+
+#footer .footer-top p a:hover {
+  color: rgb(255, 217, 0);
+}
+
+#footer .footer-top .social-links {
+  margin-top: 30px;
+}
+
+#footer .footer-top .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: rgb(198, 169, 5);
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .footer-top .social-links a:hover {
+  background: rgb(134, 115, 7);
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .footer-bottom {
+  border-top: 1px solid #222222;
+  z-index: 2;
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#footer .copyright {
+  text-align: center;
+}
+
+#footer .credits {
+  text-align: center;
+  font-size: 13px;
+  padding-top: 5px;
+}
+
+#footer .credits a {
+  color: rgb(198, 169, 5);
+  font-weight: 400;
+}
+
+/* #Login Section
+--------------------------------------------------------------*/
+
+#login {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/hero-bg.png");
+  position: relative;
+}
+
+#login .login-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 15px;
+}
+
+#login .login-logo {
+  margin-bottom: 30px;
+}
+
+#login h1 {
+  margin: 0 0 30px 0;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 56px;
+  color: #fff;
+}
+
+#login h2 {
+  color: #aeaeae;
+  margin-bottom: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  width: 635px;
+  border: double rgba(255, 255, 255, 0.5);
+  margin: 10% auto;
+  padding: 40px;
+}
+
+/* .login-container :hover {
+  box-shadow: 0 0 25px #0ef, inset 0 0 25px #0ef;
+} */
+
+.wrapper .username {
+  margin-bottom: 25px;
+}
+.wrapper .password {
+  margin-bottom: 25px;
+}
+
+.wrapper .in-user {
+  position: absolute;
+  margin-left: 60px;
+  height: 53px;
+  width: 50px;
+  background: #000000a1;
+  color: #fff;
+  line-height: 48px;
+  font-size: 20px;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid;
+}
+
+.wrapper .in-pass {
+  margin: 0 auto;
+  /* background: #fff; */
+  width: 100%;
+}
+
+.wrapper .pass-lock {
+  position: absolute;
+  margin-left: 60px;
+  height: 53px;
+  width: 50px;
+  background: #000000a1;
+  color: #fff;
+  line-height: 48px;
+  font-size: 20px;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid;
+}
+
+.wrapper input {
+  height: 100%;
+  width: 78%;
+  background: transparent;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  padding: 13px 45px;
+  padding-left: 60px;
+  font-size: 19px;
+  color: #fff;
+  outline: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.wrapper input:focus {
+  box-shadow: 0 0 15px #ffffff88;
+}
+
+.wrapper input::placeholder {
+  color: #ffffffa2;
+}
+
+.show-hide {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 56%;
+  right: 15%;
+}
+
+.show-hide i {
+  font-size: 19px;
+  color: #ffffff;
+  cursor: pointer;
+  display: none;
+}
+
+.show-hide i.hide::before {
+  content: "\f070";
+}
+
+input:valid ~ .show-hide i {
+  display: block;
+}
+
+#login .btn-login {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 27px;
+  width: 78%;
+  border-radius: 3px;
+  border: 2px solid rgb(250, 250, 250);
+  margin: 10px;
+  background: #ffffff00;
+  color: rgb(250, 250, 250);
+}
+
+#login .btn-login:hover {
+  transition: 0.5s;
+  color: #260f0f;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.823);
+  /* border: solid;
+  border-color: #15151500; */
+}
+
+@media (min-width: 1024px) {
+  #login {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #login h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #login h2 {
+    line-height: 22px;
+  }
+}
+
+/* # Hide scroolbar --------------------------------------------------------------*/
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}

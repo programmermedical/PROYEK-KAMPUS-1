@@ -1,8 +1,12 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "root", "project");
-$query = mysqli_query($conn, "SELECT * FROM data ORDER BY `prodi` ASC, `jam` ASC");
-$row = mysqli_fetch_assoc($query);
+// $conn = mysqli_connect("localhost", "root", "root", "project");
+// $query = mysqli_query($conn, "SELECT * FROM data ORDER BY `prodi` ASC, `jam` ASC");
+// $row = mysqli_fetch_assoc($query);
+include '../../controller/ImplementDataPerkuliahan.php';
+
+$implements = new implementDataPerkuliahan();
+$result = $implements->readDataPerkuliahan();
 
 ?>
 
@@ -19,22 +23,22 @@ $row = mysqli_fetch_assoc($query);
   <meta content="" name="keywords" />
 
   <!-- Favicons -->
-  <link href="../../assets/img/itsk-logo.png" rel="icon" />
-  <link href="../../assets/img/itsk-logo.png" rel="apple-touch-icon" />
+  <link href="../../../assets/img/itsk-logo.png" rel="icon" />
+  <link href="../../../assets/img/itsk-logo.png" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
-  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet" />
-  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
-  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="../../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
-  <link href="../../assets/css/style2.css" rel="stylesheet" />
+  <link href="../../../assets/css/style2.css" rel="stylesheet" />
 
   <!-- =======================================================
   * Template Name: Knight
@@ -50,7 +54,7 @@ $row = mysqli_fetch_assoc($query);
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <a href="index.php" class="hero-logo" data-aos="zoom-in"><img src="../../assets/img/itsk-logo.png" alt="ITSK-LOGO" width="250" height="250" /></a>
+      <a href="index.php" class="hero-logo" data-aos="zoom-in"><img src="../../../assets/img/itsk-logo.png" alt="ITSK-LOGO" width="250" height="250" /></a>
       <h1 data-aos="zoom-in">Selamat datang Admin, <br> di sistem penjadwalan ruang perkuliahan kampus 1 <br> ITSK RS dr. Soepraoen</h1>
       <!-- <h1 data-aos="zoom-in" style="margin-top: -15px;">ITSK RS dr. Soepraoen</h1> -->
       <h2 data-aos="fade-up" data-aos-delay="200" style="margin-top: -15px;">BADAN ADMINISTRASI UMUM KAMPUS 1</h2>
@@ -63,7 +67,7 @@ $row = mysqli_fetch_assoc($query);
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
-        <a href="index.php"><img src="../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
+        <a href="index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -129,21 +133,22 @@ $row = mysqli_fetch_assoc($query);
 
           <?php
           $i = 1;
-          while ($row = mysqli_fetch_assoc($query)) : ?>
+          foreach ($result as $rows) :
+          ?>
             <tbody>
               <tr>
-                <th scope="row"><?= $i ?></th>
-                <td><?= $row["prodi"] ?></td>
-                <td><?= $row["semester"] ?></td>
-                <td><?= $row["kelas"] ?></td>
-                <td><?= $row["matakuliah"] ?></td>
-                <td><?= $row["jam"] ?></td>
-                <td><?= $row["pukul"] ?></td>
-                <td><?= $row["ruangan"] ?></td>
+                <th scope="row"><?= $i++ ?></th>
+                <td><?= $rows["nama_prodi"] ?></td>
+                <td><?= $rows["tingkat"] ?></td>
+                <td><?= $rows["kelas"] ?></td>
+                <td> RPL </td>
+                <td><?= $rows["sesi"] ?></td>
+                <td> 09.00 - 11.30</td>
+                <td>Ruangan 2</td>
               </tr>
             </tbody>
             <?php $i++ ?>
-          <?php endwhile ?>
+          <?php endforeach ?>
         </table>
 
         <div class="conf-jadwal">
@@ -268,7 +273,7 @@ $row = mysqli_fetch_assoc($query);
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            <a href="#header"><img src="../../assets/img/itsk-logo.png" alt="" height="125" width="125" /></a>
+            <a href="#header"><img src="../../../assets/img/itsk-logo.png" alt="" height="125" width="125" /></a>
             <h3>ITSK RS DR. SOEPRAOEN</h3>
             <p> <a href="https://www.google.com/maps/place/Campus+2+ITSK+RS+dr.+Soepraoen/@-7.9898472,112.6160709,15.96z/data=!4m15!1m8!3m7!1s0x2e78834c14720de5:0x5734a0a408cc3885!2sJl.+S.+Supriyadi+Gg.+IIa+No.22,+Sukun,+Kec.+Sukun,+Kota+Malang,+Jawa+Timur+65147!3b1!8m2!3d-7.9928588!4d112.6196869!16s%2Fg%2F11fj5ldthc!3m5!1s0x2dd6281d6d2d9ecf:0x30e491887b18d4f0!8m2!3d-7.9869736!4d112.6196197!16s%2Fg%2F11bz_3yq9y">Jln. S. Supriadi No. 22, Sukun, Kecamatan Sukun, Kota Malang, Jawa Timur <br> Kode Pos: 65147</a></p>
           </div>
@@ -298,15 +303,15 @@ $row = mysqli_fetch_assoc($query);
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../../assets/vendor/aos/aos.js"></script>
-  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+  <script src="../../../assets/vendor/aos/aos.js"></script>
+  <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../../assets/js/main.js"></script>
+  <script src="../../../assets/js/main.js"></script>
 </body>
 
 </html>

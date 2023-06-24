@@ -8,5 +8,5 @@ interface  InterfaceDataPerkuliahan
 
     public function deleteDataPerkuliahan();
 
-    public function readDataPerkuliahan();
+    public function readDataPerkuliahan($query);
 }

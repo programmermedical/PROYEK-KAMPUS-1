@@ -6,7 +6,7 @@ class Config
     private $hostname = 'localhost',
         $username = 'root',
         $password = 'root',
-        $database = 'db_kampus1';
+        $database = 'db_kampus11';
     protected $conn;
 
     public function __construct()

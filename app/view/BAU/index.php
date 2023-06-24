@@ -6,8 +6,11 @@
 include '../../controller/ImplementDataPerkuliahan.php';
 
 $implements = new implementDataPerkuliahan();
-$result = $implements->readDataPerkuliahan();
+$query1 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
+$result1 = $implements->readDataPerkuliahan($query1);
 
+$query2 = "SELECT * FROM tahunajaran";
+$result2 = $implements->readDataPerkuliahan($query2);
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +76,7 @@ $result = $implements->readDataPerkuliahan();
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="view/update.php#edit">Edit data</a></li>
+          <li><a class="nav-link scrollto" href="view/update.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -114,7 +117,10 @@ $result = $implements->readDataPerkuliahan();
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>Jadwal ruangan perkuliahan</h2>
-          <p style="margin-top: -10px;"><?php echo date('l, j M Y'); ?></p>
+          <?php foreach ($result2 as $rest) : ?>
+            <h5 style="margin-top: -10px;">TAHUN AJARAN <?= $rest['t_awal'] ?> - <?= $rest['t_akhir'] ?></h5>
+          <?php endforeach ?>
+          <p><?php echo date('l, j M Y'); ?></p>
         </div>
 
         <table class="table table-striped table-dark table-responsive" data-aos="fade" style="margin-top:-20px;">
@@ -131,23 +137,20 @@ $result = $implements->readDataPerkuliahan();
             </tr>
           </thead>
 
-          <?php
-          $i = 1;
-          foreach ($result as $rows) :
-          ?>
+          <?php $i = 1;
+          foreach ($result1 as $rows) : ?>
             <tbody>
               <tr>
-                <th scope="row"><?= $i++ ?></th>
-                <td><?= $rows["nama_prodi"] ?></td>
-                <td><?= $rows["tingkat"] ?></td>
-                <td><?= $rows["kelas"] ?></td>
-                <td> RPL </td>
-                <td><?= $rows["sesi"] ?></td>
-                <td> 09.00 - 11.30</td>
-                <td>Ruangan 2</td>
+                <th scope='row'><?= $i++ ?></th>
+                <td><?= $rows['nama_prodi'] ?></td>
+                <td><?= $rows['tingkat'] ?></td>
+                <td><?= $rows['kelas'] ?></td>
+                <td><?= $rows['nama_matkul'] ?> </td>
+                <td><?= $rows['sesi'] ?></td>
+                <td><?= $rows['waktu'] ?></td>
+                <td><?= $rows['ruangan'] ?></td>
               </tr>
             </tbody>
-            <?php $i++ ?>
           <?php endforeach ?>
         </table>
 

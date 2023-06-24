@@ -48,7 +48,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="update.php#edit">Edit data</a></li>
+          <li><a class="nav-link scrollto" href="update.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -83,7 +83,7 @@
   <section id="edit">
     <div class="container">
       <div class="section-title">
-        <h2 style="color: #fff;" data-aos="fade-up">Edit data</h2>
+        <h2 style="color: #fff;" data-aos="fade-up">Data Perkuliahan</h2>
         <!-- <p style="margin-top: -10px;">Edit data ruangan perkuliahan</p> -->
       </div>
 

@@ -14,14 +14,16 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
     public function deleteDataPerkuliahan()
     {
     }
-    public function readDataPerkuliahan()
+    public function readDataPerkuliahan($query)
     {
-        $query = mysqli_query($this->conn, 'SELECT * FROM prodi');
-        while ($row = mysqli_fetch_assoc($query)) {
+        // $query = 'SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, matakuliah.ta_awal, matakuliah.ta_akhir, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id';
+
+        $querys = mysqli_query($this->conn, $query);
+        while ($row = mysqli_fetch_assoc($querys)) {
             $result[] = $row;
-            return $result;
         }
-        // $result = mysqli_fetch_assoc($query);
-        return $query;
+        return $result;
+        // $result = mysqli_fetch_assoc($querys);
+        // return $result;
     }
 }

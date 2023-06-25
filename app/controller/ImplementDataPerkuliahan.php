@@ -26,19 +26,26 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
             $matkul = $Dp->getDataMatkul();
             $dosen = $Dp->getDataDosen();
             $waktu = $Dp->getWaktu();
-            if ($stmt2->execute()) {
-                $id_perkuliahan = $stmt2->insert_id;
-                $cek = "SELECT prodi_id FROM matakuliah WHERE id = '$id_perkuliahan'";
-                if (mysqli_query($this->conn, $cek) == TRUE) {
-                    mysqli_close($this->conn);
-                    $stmt->close();
-                    $stmt2->close();
-                    die();
-                } else {
-                    $del = "DELETE FROM prodi WHERE id = '$prodi_id'";
-                    mysqli_query($this->conn, $del);
-                }
-            }
+            $stmt2->execute();
+            // if ($stmt2->execute()) {
+            //     $id_perkuliahan = $stmt2->insert_id;
+            //     $cek = "SELECT prodi_id FROM matakuliah WHERE prodi_id = '$id_perkuliahan'";
+            //     $query = mysqli_query($this->conn, $cek);
+            //     $result = mysqli_fetch_assoc($query);
+            //     $rest = $result['prodi_id'];
+            //     if ($rest == $id_perkuliahan) {
+            //         mysqli_close($this->conn);
+            //         $stmt->close();
+            //         $stmt2->close();
+            //         die();
+            //     } else {
+            //         $del = "DELETE FROM prodi WHERE id = '$prodi_id'";
+            //         mysqli_query($this->conn, $del);
+            //     }
+            // }
+            $stmt->close();
+            $stmt2->close();
+            // die();
         }
 
         // if (!$stmt) {

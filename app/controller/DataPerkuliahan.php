@@ -44,25 +44,6 @@ class DataPerkuliahan
         $this->dataProdi = $dataProdi;
     }
 
-    public function getTa_awal()
-    {
-        return $this->ta_awal;
-    }
-
-    public function setTa_awal($ta_awal)
-    {
-        $this->ta_awal = $ta_awal;
-    }
-
-    public function getTa_akhir()
-    {
-        return $this->ta_akhir;
-    }
-
-    public function setTa_akhir($ta_akhir)
-    {
-        $this->ta_akhir = $ta_akhir;
-    }
     public function getSesi()
     {
         return $this->sesi;

@@ -42,13 +42,13 @@
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
-        <a href="../index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
+        <a href="index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="update.php#edit">Edit data</a></li>
+          <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -69,7 +69,7 @@
               <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
               <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -164,26 +164,31 @@
             <div id="emailHelp" class="form-text" data-aos="fade">contoh : 07.00 - 09.00</div>
           </div>
           <div class="mb-3">
-            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Ruangan</label>
-            <!-- <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan ruangan" required> -->
-            <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
-              <option value="Ruangan 1">Ruangan 1 </option>
-              <option value="Ruangan 2">Ruangan 2 </option>
-              <option value="Ruangan 3">Ruangan 3 </option>
-              <option value="Ruangan 4">Ruangan 4 </option>
-              <option value="Ruangan 5">Ruangan 5 </option>
-              <option value="Ruangan 6">Ruangan 6</option>
-              <option value="Ruangan 7">Ruangan 7</option>
-              <option value="Ruangan 8">Ruangan 8</option>
-              <option value="Ruangan 9">Ruangan 9</option>
-              <option value="Ruangan 10">Ruangan 10</option>
-              <option value="Ruangan 11">Ruangan 11</option>
-              <option value="Ruangan 17">Ruangan 17</option>
-              <option value="Ruangan 18">Ruangan 18 </option>
-              <option value="Aula Kampus 2">Aula Kampus 2</option>
-            </select>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Dosen Pengajar</label>
+            <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan dosen pengajar" required>
           </div>
-          <button type="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Ruangan</label>
+              <!-- <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan ruangan" required> -->
+              <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
+                <option value="Ruangan 1">Ruangan 1 </option>
+                <option value="Ruangan 2">Ruangan 2 </option>
+                <option value="Ruangan 3">Ruangan 3 </option>
+                <option value="Ruangan 4">Ruangan 4 </option>
+                <option value="Ruangan 5">Ruangan 5 </option>
+                <option value="Ruangan 6">Ruangan 6</option>
+                <option value="Ruangan 7">Ruangan 7</option>
+                <option value="Ruangan 8">Ruangan 8</option>
+                <option value="Ruangan 9">Ruangan 9</option>
+                <option value="Ruangan 10">Ruangan 10</option>
+                <option value="Ruangan 11">Ruangan 11</option>
+                <option value="Ruangan 17">Ruangan 17</option>
+                <option value="Ruangan 18">Ruangan 18 </option>
+                <option value="Aula Kampus 2">Aula Kampus 2</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
         </form>
       </div>
     </div>

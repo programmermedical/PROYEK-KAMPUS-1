@@ -1,3 +1,13 @@
+<?php
+include 'app/controller/ImplementDataPerkuliahan.php';
+
+$implements1 = new implementDataPerkuliahan();
+
+$query1 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
+$implements1->readDataPerkuliahan($query1);
+$result = $implements1;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,25 +92,6 @@
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>

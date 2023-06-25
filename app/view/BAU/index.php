@@ -1,16 +1,6 @@
 <?php
+include 'function/proses-index.php';
 
-// $conn = mysqli_connect("localhost", "root", "root", "project");
-// $query = mysqli_query($conn, "SELECT * FROM data ORDER BY `prodi` ASC, `jam` ASC");
-// $row = mysqli_fetch_assoc($query);
-include '../../controller/ImplementDataPerkuliahan.php';
-
-$implements = new implementDataPerkuliahan();
-$query1 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
-$result1 = $implements->readDataPerkuliahan($query1);
-
-$query2 = "SELECT * FROM tahunajaran";
-$result2 = $implements->readDataPerkuliahan($query2);
 ?>
 
 <!DOCTYPE html>
@@ -76,12 +66,12 @@ $result2 = $implements->readDataPerkuliahan($query2);
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="view/update.php#edit">Data Perkuliahan</a></li>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="view/confirm.php">Konfirmasi</a></li>
-              <li><a href="view/insert.php">Tambahkan data</a></li>
+              <li><a href="confirm.php">Konfirmasi</a></li>
+              <li><a href="insert.php">Tambahkan data</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -90,14 +80,14 @@ $result2 = $implements->readDataPerkuliahan($query2);
               <li class="dropdown">
                 <a href="#admin"><span>Edit Admin</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="view/admin/update-adminbau.php#admin">Admin BAU</a></li>
-                  <li><a href="view/admin/update-adminprodi.php#admin"">Admin Prodi</a></li>
+                  <li><a href="admin/update-adminbau.php#admin">Admin BAU</a></li>
+                  <li><a href="admin/update-adminprodi.php#admin"">Admin Prodi</a></li>
                 </ul>
               </li>
-              <li><a href=" view/admin/insert-admin.php#admin">Tambahkan admin</a></li>
+              <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
               <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -117,7 +107,7 @@ $result2 = $implements->readDataPerkuliahan($query2);
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>Jadwal ruangan perkuliahan</h2>
-          <?php foreach ($result2 as $rest) : ?>
+          <?php foreach ($result1 as $rest) : ?>
             <h5 style="margin-top: -10px;">TAHUN AJARAN <?= $rest['t_awal'] ?> - <?= $rest['t_akhir'] ?></h5>
           <?php endforeach ?>
           <p><?php echo date('l, j M Y'); ?></p>
@@ -133,12 +123,13 @@ $result2 = $implements->readDataPerkuliahan($query2);
               <th scope="col">Mata Kuliah</th>
               <th scope="col">Sesi perkuliahan ke-</th>
               <th scope="col">Pukul (WIB)</th>
+              <th scope="col">Dosen Pengajar</th>
               <th scope="col">Ruangan</th>
             </tr>
           </thead>
 
           <?php $i = 1;
-          foreach ($result1 as $rows) : ?>
+          foreach ($result2 as $rows) : ?>
             <tbody>
               <tr>
                 <th scope='row'><?= $i++ ?></th>
@@ -148,64 +139,12 @@ $result2 = $implements->readDataPerkuliahan($query2);
                 <td><?= $rows['nama_matkul'] ?> </td>
                 <td><?= $rows['sesi'] ?></td>
                 <td><?= $rows['waktu'] ?></td>
+                <td><?= $rows['nama_dosen'] ?></td>
                 <td><?= $rows['ruangan'] ?></td>
               </tr>
             </tbody>
           <?php endforeach ?>
         </table>
-
-        <div class="conf-jadwal">
-          <div class="section-title" data-aos="fade-up">
-            <h3>Konfirmasi jadwal ruangan perkuliahan prodi S1 Farmasi</h3>
-          </div>
-
-          <table class="table table-striped table-dark table-responsive" data-aos="fade" style="margin-top:-20px;">
-            <thead>
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Prodi</th>
-                <th scope="col">Tingkat</th>
-                <th scope="col">Kelas</th>
-                <th scope="col">Mata Kuliah</th>
-                <th scope="col">Sesi perkuliahan ke-</th>
-                <th scope="col">Pukul</th>
-                <th scope="col">Ruangan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
       </div>
     </section>
 

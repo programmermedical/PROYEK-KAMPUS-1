@@ -42,13 +42,13 @@
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
-        <a href="../index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
+        <a href="index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="update.php#edit">Edit data</a></li>
+          <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -69,7 +69,7 @@
               <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
               <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -78,7 +78,6 @@
     </div>
   </header>
   <!-- End Header -->
-
   <!-- ======= Update ======= -->
   <section id="konfirmasi">
     <div class="container">

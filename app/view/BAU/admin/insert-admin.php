@@ -47,7 +47,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="../../index.php#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
           <li><a class="nav-link scrollto" href="../update.php#edit">Edit data</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
@@ -60,7 +60,7 @@
             <a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown">
-                <a href="#admin"><span>Edit Admin</span> <i class="bi bi-chevron-right"></i></a>
+                <a href="#admin"><span>Data Perkuliahan</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="update-adminbau.php#admin">Admin BAU</a></li>
                   <li><a href="update-adminprodi.php#admin"">Admin Prodi</a></li>
@@ -69,7 +69,7 @@
               <li><a href=" insert-admin.php#admin">Tambahkan admin</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
               <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

@@ -1,3 +1,7 @@
+<?php
+include 'function/proses-dataPerkuliahan.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,13 +46,13 @@
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
-        <a href="../index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
+        <a href="index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="update.php#edit">Data Perkuliahan</a></li>
+          <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
             <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -69,7 +73,7 @@
               <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
                 </ul>
               </li>
-              <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
               <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
@@ -97,6 +101,7 @@
             <th>Mata Kuliah</th>
             <th>Sesi perkuliahan ke-</th>
             <th>Pukul</th>
+            <th>Dosen Pengajar</th>
             <th>Ruangan</th>
             <th>Edit</th>
             <th>Hapus</th>
@@ -112,8 +117,9 @@
             <td>Otto</td>
             <td>@mdo</td>
             <td>@mdo</td>
-            <td><button class="btn-option">Edit</button></td>
+            <td>@mdo</td>
             <td><button class="btn-option">Hapus</button></td>
+            <td><button class="btn-option">Edit</button></td>
           </tr>
           <tr>
             <td>1</td>
@@ -124,8 +130,9 @@
             <td>Otto</td>
             <td>@mdo</td>
             <td>@mdo</td>
-            <td><button class="btn-option">Edit</button></td>
+            <td>@mdo</td>
             <td><button class="btn-option">Hapus</button></td>
+            <td><button class="btn-option">Edit</button></td>
           </tr>
           <tr>
             <td>1</td>
@@ -136,8 +143,9 @@
             <td>Otto</td>
             <td>@mdo</td>
             <td>@mdo</td>
-            <td><button class="btn-option">Edit</button></td>
+            <td>@mdo</td>
             <td><button class="btn-option">Hapus</button></td>
+            <td><button class="btn-option">Edit</button></td>
           </tr>
           <tr>
             <td>1</td>
@@ -148,61 +156,79 @@
             <td>Otto</td>
             <td>@mdo</td>
             <td>@mdo</td>
-            <td><button class="btn-option">Edit</button></td>
+            <td>@mdo</td>
             <td><button class="btn-option">Hapus</button></td>
+            <td><button class="btn-option">Edit</button></td>
           </tr>
         </tbody>
       </table>
 
-    </div>
-  </section>
-  <!-- End Update -->
+      <section id="edit">
+        <div class="container">
+          <div class="section-title">
+            <!-- <h2 style="color: #fff;" data-aos="fade-up">Dokumen</h2> -->
+            <div class="table-prodi">
+              <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left"> Dokumen</h4>
+              <table class="table1" data-aos="fade-left">
+                <thead>
+                  <tr>
+                    <th style="text-align: left;">Rekapitulasi jadwal perkuliahan.pdf</th>
+                    <th width="15px"><button class="btn-option">Lihat</button></th>
+                    <th width="15px"><button class="btn-option">Edit</button></th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Update -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" style="box-shadow: 0 0 17px 4px hsla(0, 0%, 0%, 0.507);">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <a href="#header"><img src="../../../assets/img/itsk-logo.png" alt="" height="125" width="125" /></a>
-            <h3>ITSK RS DR. SOEPRAOEN</h3>
-            <p> <a href="https://www.google.com/maps/place/Campus+2+ITSK+RS+dr.+Soepraoen/@-7.9898472,112.6160709,15.96z/data=!4m15!1m8!3m7!1s0x2e78834c14720de5:0x5734a0a408cc3885!2sJl.+S.+Supriyadi+Gg.+IIa+No.22,+Sukun,+Kec.+Sukun,+Kota+Malang,+Jawa+Timur+65147!3b1!8m2!3d-7.9928588!4d112.6196869!16s%2Fg%2F11fj5ldthc!3m5!1s0x2dd6281d6d2d9ecf:0x30e491887b18d4f0!8m2!3d-7.9869736!4d112.6196197!16s%2Fg%2F11bz_3yq9y">Jln. S. Supriadi No. 22, Sukun, Kecamatan Sukun, Kota Malang, Jawa Timur <br> Kode Pos: 65147</a></p>
+      <!-- ======= Footer ======= -->
+      <footer id="footer" style="box-shadow: 0 0 17px 4px hsla(0, 0%, 0%, 0.507);">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <a href="#header"><img src="../../../assets/img/itsk-logo.png" alt="" height="125" width="125" /></a>
+                <h3>ITSK RS DR. SOEPRAOEN</h3>
+                <p> <a href="https://www.google.com/maps/place/Campus+2+ITSK+RS+dr.+Soepraoen/@-7.9898472,112.6160709,15.96z/data=!4m15!1m8!3m7!1s0x2e78834c14720de5:0x5734a0a408cc3885!2sJl.+S.+Supriyadi+Gg.+IIa+No.22,+Sukun,+Kec.+Sukun,+Kota+Malang,+Jawa+Timur+65147!3b1!8m2!3d-7.9928588!4d112.6196869!16s%2Fg%2F11fj5ldthc!3m5!1s0x2dd6281d6d2d9ecf:0x30e491887b18d4f0!8m2!3d-7.9869736!4d112.6196197!16s%2Fg%2F11bz_3yq9y">Jln. S. Supriadi No. 22, Sukun, Kecamatan Sukun, Kota Malang, Jawa Timur <br> Kode Pos: 65147</a></p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
           </div>
         </div>
 
-        <div class="social-links">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <div class="container footer-bottom clearfix">
+          <div class="copyright">
+            &copy; Copyright <strong><span>ITSK RS Dr. Soepraoen</span></strong> | Badan Administrasi Umum
+          </div>
+          <div class="credits">
+            Designed by <a href="https://programmermedical.github.io/">Zainal Saputra</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </footer>
+      <!-- End Footer -->
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>ITSK RS Dr. Soepraoen</span></strong> | Badan Administrasi Umum
-      </div>
-      <div class="credits">
-        Designed by <a href="https://programmermedical.github.io/">Zainal Saputra</a>
-      </div>
-    </div>
-  </footer>
-  <!-- End Footer -->
+      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <!-- Vendor JS Files -->
+      <script src="../../../assets/vendor/aos/aos.js"></script>
+      <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="../../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="../../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="../../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="../../../assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Vendor JS Files -->
-  <script src="../../../assets/vendor/aos/aos.js"></script>
-  <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../../../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../../../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../../../assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="../../../assets/js/main.js"></script>
+      <!-- Template Main JS File -->
+      <script src="../../../assets/js/main.js"></script>
 </body>
 
 </html>

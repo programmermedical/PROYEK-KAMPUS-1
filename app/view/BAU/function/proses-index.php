@@ -15,5 +15,4 @@ $query2 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, mata
 $result2 = $implements->readDataPerkuliahan($query2);
 
 $implements2 = new ReadData();
-// $query3 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu FROM matakuliah INNER JOIN prodi ON prodi.id = matakuliah.prodi_id WHERE nama_prodi = 's1 farmasi' ORDER BY waktu ASC;";
 $result3 = $implements2->readDataProdi('s1 farmasi');;

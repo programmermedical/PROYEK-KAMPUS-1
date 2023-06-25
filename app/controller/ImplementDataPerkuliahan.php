@@ -67,7 +67,7 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
         // mysqli_stmt_close($stmt);
         // mysqli_close($conn);
     }
-    public function updateDataPerkuliahan()
+    public function updateDataPerkuliahan(DataPerkuliahan $dP)
     {
     }
     public function deleteDataPerkuliahan()

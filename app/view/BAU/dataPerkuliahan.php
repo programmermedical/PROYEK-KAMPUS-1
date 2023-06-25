@@ -108,59 +108,25 @@ include 'function/proses-dataPerkuliahan.php';
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td><button class="btn-option">Hapus</button></td>
-            <td><button class="btn-option">Edit</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td><button class="btn-option">Hapus</button></td>
-            <td><button class="btn-option">Edit</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td><button class="btn-option">Hapus</button></td>
-            <td><button class="btn-option">Edit</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td><button class="btn-option">Hapus</button></td>
-            <td><button class="btn-option">Edit</button></td>
-          </tr>
+          <?php
+          $i = 1;
+          foreach ($result as $rest) : ?>
+            <tr>
+              <td><?= $i++ ?></td>
+              <td><?= $rest['nama_prodi'] ?></td>
+              <td><?= $rest['tingkat'] ?></td>
+              <td><?= $rest['kelas'] ?></td>
+              <td><?= $rest['nama_matkul'] ?></td>
+              <td><?= $rest['sesi'] ?></td>
+              <td><?= $rest['waktu'] ?></td>
+              <td><?= $rest['nama_dosen'] ?></td>
+              <td><?= $rest['ruangan'] ?></td>
+              <td><button class="btn-option">Hapus</button></td>
+              <td><a href="function/proses-dataPerkuliahan.php?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
+            </tr>
+          <?php endforeach ?>
         </tbody>
+
       </table>
 
       <section id="edit">

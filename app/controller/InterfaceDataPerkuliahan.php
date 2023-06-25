@@ -4,7 +4,7 @@ interface  InterfaceDataPerkuliahan
 {
     public function insertDataPerkuliahan(DataPerkuliahan $dP);
 
-    public function updateDataPerkuliahan();
+    public function updateDataPerkuliahan(DataPerkuliahan $dP);
 
     public function deleteDataPerkuliahan();
 

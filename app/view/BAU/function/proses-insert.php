@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
     $col_matkul = htmlspecialchars($_POST["col_matkul"]);
     $col_sesi = htmlspecialchars($_POST["col_sesi"]);
     $col_waktu = htmlspecialchars($_POST["col_waktu"]);
-    $col_dosen = htmlspecialchars($_POST["col_prodi"]);
+    $col_dosen = htmlspecialchars($_POST["col_dosen"]);
     $col_ruangan = htmlspecialchars($_POST["col_ruangan"]);
 
 

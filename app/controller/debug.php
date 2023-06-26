@@ -8,7 +8,7 @@ include 'database/manualconfig.php';
 
 // $implements = new implementDataPerkuliahan();
 
-/ public $cetak = new implementDataPerkuliahan;
+// / public $cetak = new implementDataPerkuliahan;
 // public function __construct($row)
 // {
 //     $get = $this->cetak->readDataPerkuliahan();
@@ -42,9 +42,9 @@ include 'database/manualconfig.php';
 
 // var_dump($implements);
 
-$cek = "SELECT prodi_id FROM matakuliah WHERE prodi_id = '14'";
-$query = mysqli_query($conn, $cek);
-$result = mysqli_fetch_assoc($query);
-if ($result['prodi_id'] == 14) {
-    echo $result['prodi_id'];
-}
+// $cek = "SELECT prodi_id FROM matakuliah WHERE prodi_id = '14'";
+// $query = mysqli_query($conn, $cek);
+// $result = mysqli_fetch_assoc($query);
+// if ($result['prodi_id'] == 14) {
+//     echo $result['prodi_id'];
+// }

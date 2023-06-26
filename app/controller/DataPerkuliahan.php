@@ -2,11 +2,13 @@
 
 class DataPerkuliahan
 {
-    private $dataDosen,
+    private
+        $prodiId,
+        $matkulId,
+        $ruanganId,
+        $dataDosen,
         $dataMatkul,
         $dataProdi,
-        $ta_awal,
-        $ta_akhir,
         $sesi,
         $waktu,
         $kelas,
@@ -14,6 +16,34 @@ class DataPerkuliahan
         $ruangan;
 
 
+
+    public function getProdiId()
+    {
+        return $this->prodiId;
+    }
+
+    public function setProdiId($prodiId)
+    {
+        $this->prodiId = $prodiId;
+    }
+    public function getMatkulId()
+    {
+        return $this->matkulId;
+    }
+
+    public function setMatkulId($matkulId)
+    {
+        $this->matkulId = $matkulId;
+    }
+    public function getRuanganId()
+    {
+        return $this->ruanganId;
+    }
+
+    public function setRuanganId($ruanganId)
+    {
+        $this->ruanganId = $ruanganId;
+    }
     public function getDataDosen()
     {
         return $this->dataDosen;

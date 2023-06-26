@@ -1,6 +1,6 @@
 <?php
 include 'function/proses-index.php';
-
+// include '../../controller/config.php';
 ?>
 
 <!DOCTYPE html>

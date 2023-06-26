@@ -1,5 +1,14 @@
 <?php
-include 'function/proses-dataPerkuliahan.php';
+include '../../controller/ImplementDataPerkuliahan.php';
+
+$implements = new implementDataPerkuliahan();
+$query = "SELECT ruangan.prodi_id, ruangan.matakuliah_id, ruangan.id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY waktu ASC";
+$result = $implements->readDataPerkuliahan($query);
+
+// foreach ($result as $rst) {
+//   var_dump($rst);
+//   die();
+// }
 ?>
 
 <!DOCTYPE html>
@@ -122,7 +131,7 @@ include 'function/proses-dataPerkuliahan.php';
               <td><?= $rest['nama_dosen'] ?></td>
               <td><?= $rest['ruangan'] ?></td>
               <td><button class="btn-option">Hapus</button></td>
-              <td><a href="function/proses-dataPerkuliahan.php?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
+              <td><a href="update.php?P_id=<?= $rest['prodi_id'] ?>&M_id=<?= $rest['matakuliah_id'] ?>&R_id=<?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
             </tr>
           <?php endforeach ?>
         </tbody>

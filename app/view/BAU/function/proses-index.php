@@ -1,8 +1,5 @@
 <?php
-
-// $conn = mysqli_connect("localhost", "root", "root", "project");
-// $query = mysqli_query($conn, "SELECT * FROM data ORDER BY `prodi` ASC, `jam` ASC");
-// $row = mysqli_fetch_assoc($query);
+// include '../../../controller/config.php';
 include '../../controller/ImplementDataPerkuliahan.php';
 include '../../controller/ReadData.php';
 

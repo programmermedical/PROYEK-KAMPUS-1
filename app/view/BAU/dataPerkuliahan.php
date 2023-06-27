@@ -1,9 +1,13 @@
 <?php
 include '../../controller/ImplementDataPerkuliahan.php';
+include '../../controller/Upload.php';
 
 $implements = new implementDataPerkuliahan();
 $query = "SELECT ruangan.prodi_id, ruangan.matakuliah_id, ruangan.id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY waktu ASC";
 $result = $implements->readDataPerkuliahan($query);
+
+$implements2 = new Upload();
+$result2 = $implements2->selectDokumen();
 
 // foreach ($result as $rst) {
 //   var_dump($rst);
@@ -143,14 +147,28 @@ $result = $implements->readDataPerkuliahan($query);
           <div class="section-title">
             <!-- <h2 style="color: #fff;" data-aos="fade-up">Dokumen</h2> -->
             <div class="table-prodi">
-              <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left"> Dokumen</h4>
+              <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" style="text-align: left;"> Dokumen</h4>
               <table class="table1" data-aos="fade-left">
                 <thead>
-                  <tr>
-                    <th style="text-align: left;">Rekapitulasi jadwal perkuliahan.pdf</th>
-                    <th width="15px"><button class="btn-option">Lihat</button></th>
-                    <th width="15px"><button class="btn-option">Edit</button></th>
-                  </tr>
+                  <?php foreach ($result2 as $rest2) : ?>
+                    <tr>
+                      <th style="text-align: left;">Nama</th>
+                      <th style="text-align: left;">File</th>
+                      <th style="text-align: left;">Ukuran</th>
+                      <th colspan="3" width="45px">Fitur</th>
+                      <!-- <th width="15px"><button class="btn-option">Hapus</button></th>
+                      <th width="15px"><button class="btn-option">Edit</button></th>
+                      <th width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></th> -->
+                    </tr>
+                    <tr>
+                      <td style="text-align: left;"><?= $rest2['nama'] ?></td>
+                      <td style="text-align: left;"><?= $rest2['namaFile'] ?></td>
+                      <td style="text-align: left;"><?= $rest2['size'] ?> Kb</td>
+                      <td width="15px"><button class="btn-option">Hapus</button></td>
+                      <td width="15px"><a href="proses-download.php?url=<?= $rest2['berkas'] ?>"><button class="btn-option">Download</button></a></td>
+                      <td width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></td>
+                    </tr>
+                  <?php endforeach ?>
                 </thead>
               </table>
             </div>

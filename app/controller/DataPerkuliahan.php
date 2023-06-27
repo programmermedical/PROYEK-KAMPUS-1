@@ -3,7 +3,7 @@
 class DataPerkuliahan
 {
     private
-        $prodiId,
+        $id,
         $matkulId,
         $ruanganId,
         $dataDosen,
@@ -17,14 +17,14 @@ class DataPerkuliahan
 
 
 
-    public function getProdiId()
+    public function getId()
     {
-        return $this->prodiId;
+        return $this->id;
     }
 
-    public function setProdiId($prodiId)
+    public function setId($id)
     {
-        $this->prodiId = $prodiId;
+        $this->id = $id;
     }
     public function getMatkulId()
     {

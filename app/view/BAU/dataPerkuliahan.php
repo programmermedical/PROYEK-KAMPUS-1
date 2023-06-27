@@ -1,12 +1,12 @@
 <?php
 include '../../controller/ImplementDataPerkuliahan.php';
-include '../../controller/Upload.php';
+include '../../controller/Dokumen.php';
 
 $implements = new implementDataPerkuliahan();
 $query = "SELECT ruangan.prodi_id, ruangan.matakuliah_id, ruangan.id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY waktu ASC";
 $result = $implements->readDataPerkuliahan($query);
 
-$implements2 = new Upload();
+$implements2 = new Dokumen();
 $result2 = $implements2->selectDokumen();
 
 // foreach ($result as $rst) {
@@ -134,7 +134,8 @@ $result2 = $implements2->selectDokumen();
               <td><?= $rest['waktu'] ?></td>
               <td><?= $rest['nama_dosen'] ?></td>
               <td><?= $rest['ruangan'] ?></td>
-              <td><button class="btn-option">Hapus</button></td>
+              <td><a href="function/proses-delete.php?id=<?= $rest['matakuliah_id'] ?>"> <button class="btn-option" onclick="confirm('apakah anda ingin menghapus data <?= $rest['nama_prodi'] ?>?')">Hapus</button></a></td>
+
               <td><a href="update.php?P_id=<?= $rest['prodi_id'] ?>&M_id=<?= $rest['matakuliah_id'] ?>&R_id=<?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
             </tr>
           <?php endforeach ?>
@@ -150,21 +151,21 @@ $result2 = $implements2->selectDokumen();
               <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" style="text-align: left;"> Dokumen</h4>
               <table class="table1" data-aos="fade-left">
                 <thead>
+                  <tr>
+                    <th style="text-align: left;">Nama</th>
+                    <th style="text-align: left;">File</th>
+                    <th style="text-align: left;">Ukuran</th>
+                    <th colspan="3" width="45px">Fitur</th>
+                    <!-- <th width="15px"><button class="btn-option">Hapus</button></th>
+                    <th width="15px"><button class="btn-option">Edit</button></th>
+                    <th width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></th> -->
+                  </tr>
                   <?php foreach ($result2 as $rest2) : ?>
-                    <tr>
-                      <th style="text-align: left;">Nama</th>
-                      <th style="text-align: left;">File</th>
-                      <th style="text-align: left;">Ukuran</th>
-                      <th colspan="3" width="45px">Fitur</th>
-                      <!-- <th width="15px"><button class="btn-option">Hapus</button></th>
-                      <th width="15px"><button class="btn-option">Edit</button></th>
-                      <th width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></th> -->
-                    </tr>
                     <tr>
                       <td style="text-align: left;"><?= $rest2['nama'] ?></td>
                       <td style="text-align: left;"><?= $rest2['namaFile'] ?></td>
                       <td style="text-align: left;"><?= $rest2['size'] ?> Kb</td>
-                      <td width="15px"><button class="btn-option">Hapus</button></td>
+                      <td width="15px"><a href="proses-hapusdok.php?id=<?= $rest2['id'] ?>"><button class="btn-option" onclick="confirm ('apakah anda akan menghapus dokumen <?= $rest2['nama'] ?>?')">Hapus</button></a> </td>
                       <td width="15px"><a href="proses-download.php?url=<?= $rest2['berkas'] ?>"><button class="btn-option">Download</button></a></td>
                       <td width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></td>
                     </tr>

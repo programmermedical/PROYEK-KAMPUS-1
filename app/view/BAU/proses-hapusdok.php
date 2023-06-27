@@ -1,7 +1,6 @@
 <?php
 require_once '../../controller/Dokumen.php';
 
-$file = $_GET['url'];
-
+$id = $_GET['id'];
 $implements = new Dokumen();
-$result = $implements->download($file);
+$implements->deleteDok($id);

@@ -6,7 +6,7 @@ interface  InterfaceDataPerkuliahan
 
     public function updateDataPerkuliahan(DataPerkuliahan $dP);
 
-    public function deleteDataPerkuliahan();
+    public function deleteDataPerkuliahan(DataPerkuliahan $dP);
 
     public function readDataPerkuliahan($query);
 }

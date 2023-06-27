@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../controller/config.php';
-require_once '../../controller/Upload.php';
+require_once '../../controller/Dokumen.php';
 
 // $kode = $_POST['kode'];
 $ekstensiAccept = ['word', 'pdf'];
@@ -26,11 +26,14 @@ if (in_array($ekstensiFile, $ekstensiAccept) == TRUE) :
         );
     endif;
 
-    $insertData = new Upload();
+    $insertData = new Dokumen();
     $insertData->uploadData($dataArr);
     if ($upload && ($insertData == 1)) {
-        header('location: dataPerkuliahan.php?berhasil');
+        // header('location: dataPerkuliahan.php?berhasil');
+        echo "<script>document.location.href='dataPerkuliahan.php'; alert('dokumen berhasil di tambahkan!!')</script>";
     } else {
-        header('location: dataPerkuliahan.php?gagal');
+        // header('location: dataPerkuliahan.php?gagal');
+        echo "<script>document.location.href='dataPerkuliahan.php'; alert('gagal menambahkan dokumen!!')</script>";
     }
+
 endif;

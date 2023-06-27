@@ -2,7 +2,7 @@
 
 // require_once 'config.php';
 
-class Upload
+class Dokumen
 {
     private $query;
 
@@ -29,10 +29,12 @@ class Upload
         $query = "SELECT * FROM dokumen";
         $conn = mysqli_connect("localhost", "root", "root", "db_kampus11");
         $stmt = mysqli_query($conn, $query);
-        if ($result = mysqli_fetch_assoc($stmt)) {
-            $row[] = $result;
-        }
-        return $row;
+        $result = mysqli_fetch_assoc($stmt);
+        return $stmt;
+        // if ($result = mysqli_fetch_assoc($stmt)) {
+        //     $row[] = $result;
+        // }
+        // return $row;
     }
 
     public function download($file)
@@ -44,6 +46,19 @@ class Upload
             header('Pragma: public');
             header('Content-Length: ' . filesize($file));
             return readfile($file);
+        }
+    }
+
+    public function deleteDok($id)
+    {
+        $query = "DELETE FROM dokumen WHERE id = $id";
+        $conn = mysqli_connect("localhost", "root", "root", "db_kampus11");
+        $stmt = mysqli_query($conn, $query);
+        if (!$stmt) {
+            // header('location: dataPerkuliahan.php?gagal');
+            echo "<script>document.location.href='dataPerkuliahan.php'; alert('gagal menghapus dokumen!!')</script>";
+        } else {
+            echo "<script>document.location.href='dataPerkuliahan.php'; alert('dokumen berhasil dihapus!!')</script>";
         }
     }
 }

@@ -139,8 +139,20 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
 
         // var_dump($prodi, $tingkat, $kelas, $matkul, $ruangan);
     }
-    public function deleteDataPerkuliahan()
+    public function deleteDataPerkuliahan($M_id)
     {
+        $query = "DELETE FROM matakuliah WHERE id = ?";
+        $stmt = mysqli_prepare($this->conn, $query);
+        $stmt->bind_param('i', $id);
+        $id = $M_id;
+        $stmt->execute();
+
+        if (!$stmt) {
+            // header('location: dataPerkuliahan.php?gagal');
+            echo "<script>document.location.href='../dataPerkuliahan.php'; alert('gagal menghapus data!!')</script>";
+        } else {
+            echo "<script>document.location.href='../dataPerkuliahan.php'; alert('data berhasil dihapus!!')</script>";
+        }
     }
     public function readDataPerkuliahan($query)
     {
@@ -150,7 +162,7 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
         while ($row = mysqli_fetch_assoc($querys)) {
             $result[] = $row;
         }
-        return $result;
+        return $querys;
         // $result = mysqli_fetch_assoc($querys);
         // return $result;
     }

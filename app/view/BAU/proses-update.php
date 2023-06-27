@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 
     $implements = new implementDataPerkuliahan();
     $dP = new DataPerkuliahan();
-    $dP->setProdiId($col_ProdiId);
+    $dP->setId($col_ProdiId);
     $dP->setMatkulId($col_MatkulId);
     $dP->setRuanganId($col_RuanganId);
     $dP->setDataProdi($col_prodi);

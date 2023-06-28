@@ -3,9 +3,12 @@ include 'app/controller/ImplementDataPerkuliahan.php';
 
 $implements1 = new implementDataPerkuliahan();
 
-$query1 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
-$implements1->readDataPerkuliahan($query1);
-$result = $implements1;
+$query1 = "SELECT * FROM tahunajaran";
+$result1 = $implements1->readDataPerkuliahan($query1);
+
+$query2 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
+
+$result2 = $implements1->readDataPerkuliahan($query2);
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +72,10 @@ $result = $implements1;
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>Jadwal ruangan perkuliahan</h2>
-          <h5 style="margin-top: -10px;"><?php echo date('l, j M Y'); ?></h5>
+          <?php foreach ($result1 as $rest) : ?>
+            <h5 style="margin-top: -10px;">TAHUN AJARAN <?= $rest['t_awal'] ?> - <?= $rest['t_akhir'] ?></h5>
+          <?php endforeach ?>
+          <p><?php echo date('l, j M Y'); ?></p>
         </div>
 
         <table class="table table-striped-columns table-dark" data-aos="fade" style="margin-top:-20px;">
@@ -77,33 +83,39 @@ $result = $implements1;
             <tr>
               <th scope="col">No</th>
               <th scope="col">Prodi</th>
-              <th scope="col" style="max-width: 35px;">Tingkat</th>
+              <th scope="col">Tingkat</th>
               <th scope="col">Kelas</th>
               <th scope="col">Mata Kuliah</th>
-              <th scope="col" style="max-width: 85px;">Sesi perkuliahan ke-</th>
-              <th scope="col">Pukul</th>
+              <th scope="col">Sesi perkuliahan ke-</th>
+              <th scope="col">Pukul (WIB)</th>
+              <th scope="col">Dosen Pengajar</th>
               <th scope="col">Ruangan</th>
-
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
-          </tbody>
+
+          <?php $i = 1;
+          foreach ($result2 as $rows) : ?>
+            <tbody>
+              <tr>
+                <th scope='row'><?= $i++ ?></th>
+                <td><?= $rows['nama_prodi'] ?></td>
+                <td><?= $rows['tingkat'] ?></td>
+                <td><?= $rows['kelas'] ?></td>
+                <td><?= $rows['nama_matkul'] ?> </td>
+                <td><?= $rows['sesi'] ?></td>
+                <td><?= $rows['waktu'] ?></td>
+                <td><?= $rows['nama_dosen'] ?></td>
+                <td><?= $rows['ruangan'] ?></td>
+              </tr>
+            </tbody>
+          <?php endforeach ?>
         </table>
         <a href="" class="file-download" data-aos="fade">
           <h6>Download file</h6>
         </a>
       </div>
   </main>
+
 
 
   <!-- ======= Footer ======= -->

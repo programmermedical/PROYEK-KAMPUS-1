@@ -30,6 +30,16 @@ class ReadData extends implementDataPerkuliahan
             "Table tidak tersedia!!";
         }
     }
+    public function readSingleData2($id)
+    {
+        $this->query1 = "select matakuliah.id, matakuliah.prodi_id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu from matakuliah inner join prodi on prodi.id = matakuliah.prodi_id WHERE matakuliah.prodi_id = '$id'";
+
+        if ($querys = mysqli_query($this->conn, $this->query1)) {
+            return  $querys;
+        } else {
+            "Table tidak tersedia!!";
+        }
+    }
 
     // public function readNamaProdi($prodi)
     // {
@@ -52,4 +62,13 @@ class ReadData extends implementDataPerkuliahan
     // }
     // return $result;
     // }
+
+    public function readAllDataProdi($namaProdi)
+    {
+        $this->query1 = "select matakuliah.id, matakuliah.prodi_id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu from matakuliah inner join prodi on prodi.id = matakuliah.prodi_id where prodi.nama_prodi = '$namaProdi'";
+
+        $stmt = mysqli_query($this->conn, $this->query1);
+        $querys = mysqli_fetch_assoc($stmt);
+        return $stmt;
+    }
 }

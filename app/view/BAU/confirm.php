@@ -1,3 +1,9 @@
+<?php
+require_once '../../controller/ReadData.php';
+
+$readData = new ReadData();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,8 +92,9 @@
         <!-- <p style="margin-top: -10px;">Edit data ruangan perkuliahan</p> -->
       </div>
 
+
       <div class="table-prodi">
-        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;1. S1 Farmasi</h4>
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;1. S1 Informatika</h4>
         <table class="table1" data-aos="fade-left" data-aos-delay="200">
           <thead>
             <tr>
@@ -98,37 +105,32 @@
               <th>Mata Kuliah</th>
               <th>Sesi perkuliahan ke-</th>
               <th>Pukul</th>
-              <th>Ruangan</th>
+              <th>Dosen Pengajar</th>
               <th>Konfirmasi</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td><button class="btn-option">Tambah</button></td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td><button class="btn-option">Tambah</button></td>
-            </tr>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('S1 Informatika');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
           </tbody>
         </table>
 
-        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;2. S1 Keperawatan</h4>
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;2. S1 Farmasi</h4>
         <table class="table1" data-aos="fade-right" data-aos-delay="200">
           <thead>
             <tr>
@@ -144,28 +146,393 @@
             </tr>
           </thead>
           <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('S1 Farmasi');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-prodi" style="margin-top: 52px;">
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;3. S1 Keperawatan</h4>
+        <table class="table1" data-aos="fade-left" data-aos-delay="200">
+          <thead>
             <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td><button class="btn-option">Tambah</button></td>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Dosen Pengajar</th>
+              <th>Konfirmasi</th>
             </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('S1 Keperawatan');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;4. S1 Anastesi</h4>
+        <table class="table1" data-aos="fade-right" data-aos-delay="200">
+          <thead>
             <tr>
-              <td>1</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-              <td><button class="btn-option">Tambah</button></td>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Ruangan</th>
+              <th>Konfirmasi</th>
             </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('S1 Anastesi');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-prodi" style="margin-top: 52px;">
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;5. S1 Kebidanan</h4>
+        <table class="table1" data-aos="fade-left" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Dosen Pengajar</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('S1 Kebidanan');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;6. D3 Keperawatan</h4>
+        <table class="table1" data-aos="fade-right" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Ruangan</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('D3 Keperawatan');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-prodi" style="margin-top: 52px;">
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;7. D3 Kebidanan</h4>
+        <table class="table1" data-aos="fade-left" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Dosen Pengajar</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('D3 Kebidanan');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;8. D3 Farmasi</h4>
+        <table class="table1" data-aos="fade-right" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Ruangan</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('D3 Farmasi');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-prodi" style="margin-top: 52px;">
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;9. D3 RMIK</h4>
+        <table class="table1" data-aos="fade-left" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Dosen Pengajar</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('D3 RMIK');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;10. D3 Akupuntur</h4>
+        <table class="table1" data-aos="fade-right" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Ruangan</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('D3 Akupuntur');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-prodi" style="margin-top: 52px;">
+        <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" data-aos-delay="200">&nbsp;11. Sarjana Terapan Anastesi</h4>
+        <table class="table1" data-aos="fade-left" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Dosen Pengajar</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('Sarjana Terapan Anastesi');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+
+        <h4 data-aos="fade-right" data-aos-delay="200">&nbsp;12. Sarjana Terapan Kebidanan</h4>
+        <table class="table1" data-aos="fade-right" data-aos-delay="200">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Prodi</th>
+              <th>Tingkat</th>
+              <th>Kelas</th>
+              <th>Mata Kuliah</th>
+              <th>Sesi perkuliahan ke-</th>
+              <th>Pukul</th>
+              <th>Ruangan</th>
+              <th>Konfirmasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $result = $readData->readAllDataProdi('Sarjana Terapan Kebidanan');
+            foreach ($result as $row) :
+            ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= $row['nama_prodi'] ?></td>
+                <td><?= $row['tingkat'] ?></td>
+                <td><?= $row['kelas'] ?></td>
+                <td><?= $row['nama_matkul'] ?></td>
+                <td><?= $row['sesi'] ?></td>
+                <td><?= $row['waktu'] ?></td>
+                <td><?= $row['nama_dosen'] ?></td>
+                <td><a href="confirm-update.php?P_id=<?= $row['prodi_id'] ?>"><button class="btn-option">Tambah</button></a></td>
+              </tr>
+            <?php endforeach ?>
           </tbody>
         </table>
       </div>

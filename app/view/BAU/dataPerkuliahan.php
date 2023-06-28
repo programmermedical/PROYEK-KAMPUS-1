@@ -223,6 +223,38 @@ $result2 = $implements2->selectDokumen();
 
       <!-- Template Main JS File -->
       <script src="../../../assets/js/main.js"></script>
+
+      <!-- Template Sweet Alert JS File -->
+      <script src="../../../assets/sweetalert/sweetalert2.min.js"></script>
+
+      <!-- Template Main SweeAlert -->
+      <link href="../../../assets/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+      <link href="../../../assets/sweetalert/animate.min.css" rel="stylesheet" />
+
+      <?php if (isset($_GET["berhasil"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data anda telah dimasukkan!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["gagal"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Gagal!!',
+            text: 'Ada kesalahan dalam penginputan data!!',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp'
+            // footer: '<a href="">Why do I have this issue?</a>'
+          });
+        </script>
+      <?php endif ?>
 </body>
 
 </html>

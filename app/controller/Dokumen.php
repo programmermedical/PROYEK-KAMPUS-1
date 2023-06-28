@@ -29,7 +29,7 @@ class Dokumen
         $query = "SELECT * FROM dokumen";
         $conn = mysqli_connect("localhost", "root", "root", "db_kampus11");
         $stmt = mysqli_query($conn, $query);
-        $result = mysqli_fetch_assoc($stmt);
+        // $result = mysqli_fetch_assoc($stmt);
         return $stmt;
         // if ($result = mysqli_fetch_assoc($stmt)) {
         //     $row[] = $result;

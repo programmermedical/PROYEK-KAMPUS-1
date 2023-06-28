@@ -1,11 +1,8 @@
 <?php
-include 'proses-update.php';
-include 'proses-updateInsert.php';
-
-session_start();
-if (!isset($_SESSION['admin'])) {
-  header('location: ../../../login.php');
-}
+// include 'proses-update-confirm.php';
+// include 'proses-confirm.php';
+include 'proses-confirm.php';
+include 'proses-confirmInsert.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,7 +84,7 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+              <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -104,8 +101,7 @@ if (!isset($_SESSION['admin'])) {
         <h2 style="color: #fff;">Update Data</h2>
       </div>
       <div class="insert-form" data-aos="fade-up">
-        <form action="proses-update.php?P_id=<?= $_GET['P_id'] ?>&M_id=<?= $_GET['M_id'] ?>&R_id=<?= $_GET['R_id'] ?> " method="post">
-          <!-- <input type="text" class="form-control" id="kelas" name="col_id" value="<?= $result['id'] ?>" disabled> -->
+        <form action="proses-confirm.php?>" method="post">
           <div class="mb-3">
             <label for="prodi" class="form-label" data-aos="fade-right">Prodi</label>
             <select type="text" class="form-select" id="prodi" name="col_prodi" data-aos="fade-left" placeholder="Silahkan masukkan nama prodi" required>
@@ -190,20 +186,20 @@ if (!isset($_SESSION['admin'])) {
             <div class="mb-3">
               <label for="ruangan" class="form-label" data-aos="fade-right">Ruangan</label>
               <select type="number" class="form-select" id="ruangan" name="col_ruangan" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
-                <option value="Ruangan 1" <?php echo ($result["ruangan"] == 'Ruangan 1' ? "selected" : "") ?>>Ruangan 1 </option>
-                <option value="Ruangan 2" <?php echo ($result["ruangan"] == 'Ruangan 2' ? "selected" : "") ?>>Ruangan 2 </option>
-                <option value="Ruangan 3" <?php echo ($result["ruangan"] == 'Ruangan 3' ? "selected" : "") ?>>Ruangan 3 </option>
-                <option value="Ruangan 4" <?php echo ($result["ruangan"] == 'Ruangan 4' ? "selected" : "") ?>>Ruangan 4 </option>
-                <option value="Ruangan 5" <?php echo ($result["ruangan"] == 'Ruangan 5' ? "selected" : "") ?>>Ruangan 5 </option>
-                <option value="Ruangan 6" <?php echo ($result["ruangan"] == 'Ruangan 6' ? "selected" : "") ?>>Ruangan 6</option>
-                <option value="Ruangan 7" <?php echo ($result["ruangan"] == 'Ruangan 7' ? "selected" : "") ?>>Ruangan 7</option>
-                <option value="Ruangan 8" <?php echo ($result["ruangan"] == 'Ruangan 8' ? "selected" : "") ?>>Ruangan 8</option>
-                <option value="Ruangan 9" <?php echo ($result["ruangan"] == 'Ruangan 9' ? "selected" : "") ?>>Ruangan 9</option>
-                <option value="Ruangan 10" <?php echo ($result["ruangan"] == 'Ruangan 10' ? "selected" : "") ?>>Ruangan 10</option>
-                <option value="Ruangan 11" <?php echo ($result["ruangan"] == 'Ruangan 11' ? "selected" : "") ?>>Ruangan 11</option>
-                <option value="Ruangan 17" <?php echo ($result["ruangan"] == 'Ruangan 17' ? "selected" : "") ?>>Ruangan 17</option>
-                <option value="Ruangan 18" <?php echo ($result["ruangan"] == 'Ruangan 18' ? "selected" : "") ?>>Ruangan 18 </option>
-                <option value="Aula Kampus 2" <?php echo ($result["ruangan"] == 'Aula Kampus 2' ? "selected" : "") ?>>Aula Kampus 2</option>
+                <option value="Ruangan 1">Ruangan 1 </option>
+                <option value="Ruangan 2">Ruangan 2 </option>
+                <option value="Ruangan 3">Ruangan 3 </option>
+                <option value="Ruangan 4">Ruangan 4 </option>
+                <option value="Ruangan 5">Ruangan 5 </option>
+                <option value="Ruangan 6">Ruangan 6</option>
+                <option value="Ruangan 7">Ruangan 7</option>
+                <option value="Ruangan 8">Ruangan 8</option>
+                <option value="Ruangan 9">Ruangan 9</option>
+                <option value="Ruangan 10">Ruangan 10</option>
+                <option value="Ruangan 11">Ruangan 11</option>
+                <option value="Ruangan 17">Ruangan 17</option>
+                <option value="Ruangan 18">Ruangan 18 </option>
+                <option value="Aula Kampus 2">Aula Kampus 2</option>
               </select>
             </div>
             <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>

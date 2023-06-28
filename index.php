@@ -1,5 +1,6 @@
 <?php
 include 'app/controller/ImplementDataPerkuliahan.php';
+include 'app/controller/Dokumen.php';
 
 $implements1 = new implementDataPerkuliahan();
 
@@ -9,6 +10,16 @@ $result1 = $implements1->readDataPerkuliahan($query1);
 $query2 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
 
 $result2 = $implements1->readDataPerkuliahan($query2);
+
+$download = new Dokumen();
+$download->selectDokumen();
+
+$select = $download->selectDokumen();
+$dokumen = mysqli_fetch_assoc($select);
+
+$berkas = $dokumen['berkas'];
+$x = explode("/", $berkas);
+$xpl = end($x);
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +72,7 @@ $result2 = $implements1->readDataPerkuliahan($query2);
       </h1>
       <h2 data-aos="fade-up" data-aos-delay="200" style="margin-top: -15px;">BADAN ADMINISTRASI UMUM KAMPUS 1
       </h2>
-      <button class="btn-login" data-aos="fade-up" data-aos-delay="200"><a href="login.html">Login</a></button>
+      <button class="btn-login" data-aos="fade-up" data-aos-delay="200"><a href="login.php">Login</a></button>
     </div>
   </section>
   <!-- End Hero -->
@@ -110,7 +121,7 @@ $result2 = $implements1->readDataPerkuliahan($query2);
             </tbody>
           <?php endforeach ?>
         </table>
-        <a href="" class="file-download" data-aos="fade">
+        <a href="app/document/<?= $xpl ?>" class="file-download" data-aos="fade">
           <h6>Download file</h6>
         </a>
       </div>

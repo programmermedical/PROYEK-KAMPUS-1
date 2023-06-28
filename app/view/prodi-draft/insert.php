@@ -1,9 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['admin'])) {
-  header('location: ../../../login.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,13 +26,6 @@ if (!isset($_SESSION['admin'])) {
 
   <!-- Template Main CSS File -->
   <link href="../../../assets/css/style2.css" rel="stylesheet" />
-  <link href="../../../assets/sweetalert/sweetalert2.min.css" rel="stylesheet" />
-  <link href="../../../assets/css/style2.css" rel="stylesheet" />
-
-
-  <!-- Template Main SweeAlert -->
-  <link href="../../../assets/sweetalert/sweetalert2.min.css" rel="stylesheet" />
-  <link href="../../../assets/sweetalert/animate.min.css" rel="stylesheet" />
 
   <!-- =======================================================
   * Template Name: Knight
@@ -49,44 +36,32 @@ if (!isset($_SESSION['admin'])) {
   ======================================================== -->
 </head>
 
-
 <body style="background: url(../PROYEK-KAMPUS-1/../../../assets/img/hero-bg.png)" ;>
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
-        <a href="index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
+        <a href="../index.php"><img src="../../../assets/img/itsk-logo.png" width="75" height="75" alt="" class="img-fluid" /></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
-          <li class="dropdown">
-            <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="confirm.php">Konfirmasi</a></li>
-              <li><a href="insert.php">Tambahkan data</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link scrollto" href="../index.php#home">Home</a></li>
+          <li><a class="nav-link scrollto" href="update.php#edit">Edit data</a></li>
+          <li><a class="nav-link scrollto" href="insert.php">Insert data</a></li>
           <li class="dropdown">
             <a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown">
-                <a href="#admin"><span>Edit Admin</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="admin/update-adminbau.php#admin">Admin BAU</a></li>
-                  <li><a href="admin/update-adminprodi.php#admin"">Admin Prodi</a></li>
-                </ul>
-              </li>
-              <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
-                </ul>
-              </li>
-              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+              <li><a href="admin/edit-admin.php#admin">Edit admin</a></li>
+              <li><a href="admin/insert-admin.php#admin">Tambahkan admin</a></li>
             </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#logout">Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
     </div>
@@ -100,10 +75,10 @@ if (!isset($_SESSION['admin'])) {
         <h2 style="color: #fff;">Insert data</h2>
       </div>
       <div class="insert-form" data-aos="fade-up">
-        <form action="function/proses-insert.php" method="post">
+        <form>
           <div class="mb-3">
-            <label for="prodi" class="form-label" data-aos="fade-right">Prodi</label>
-            <select type="text" class="form-select" id="prodi" name="col_prodi" data-aos="fade-left" placeholder="Silahkan masukkan nama prodi" required>
+            <label for="exampleInputEmail1" class="form-label" data-aos="fade-right">Prodi</label>
+            <select type="text" class="form-select" id="exampleInputEmail1" aria-describedby="emailHelp" data-aos="fade-left" placeholder="Silahkan masukkan nama prodi" required>
               <option value="S1 Informatika">S1 Informatika</option>
               <option value="S1 Keperawatan">S1 Keperawatan</option>
               <option value="S1 Farmasi">S1 Farmasi</option>
@@ -119,8 +94,8 @@ if (!isset($_SESSION['admin'])) {
             </select>
           </div>
           <div class="mb-3">
-            <label for="tingkat" class="form-label" data-aos="fade-right">Tingkat</label>
-            <select type="number" class="form-select" id="tingkat" name="col_tingkat" data-aos="fade-left" placeholder="Silahkan masukkan semester kelas" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Tingkat</label>
+            <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan semester kelas" required>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -128,17 +103,17 @@ if (!isset($_SESSION['admin'])) {
             </select>
           </div>
           <div class="mb-3">
-            <label for="kelas" class="form-label" data-aos="fade-right">Kelas</label>
-            <input type="text" class="form-control" id="kelas" name="col_kelas" data-aos="fade-left" placeholder="Silahkan masukkan kelas prodi" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Kelas</label>
+            <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan kelas prodi" required>
             <div id="emailHelp" class="form-text" data-aos="fade">format kode kelas, contoh : 1B</div>
           </div>
           <div class="mb-3">
-            <label for="matkul" class="form-label" data-aos="fade-right">Mata kuliah</label>
-            <input type="text" class="form-control" id="matkul" name="col_matkul" data-aos="fade-left" placeholder="Silahkan masukkan mata kuliah" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Mata kuliah</label>
+            <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan mata kuliah" required>
           </div>
           <div class="mb-3">
-            <label for="sesi" class="form-label" data-aos="fade-right">Sesi perkuliahan ke-</label>
-            <select type="number" class="form-select" id="sesi" name="col_sesi" data-aos="fade-left" placeholder="Silahkan masukkan jam perkuliahan" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Sesi perkuliahan ke-</label>
+            <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan jam perkuliahan" required>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -148,8 +123,8 @@ if (!isset($_SESSION['admin'])) {
             </select>
           </div>
           <div class="mb-3">
-            <label for="waktu" class="form-label" data-aos="fade-right">jam</label>
-            <select type="number" class="form-select" id="waktu" name="col_waktu" data-aos="fade-left" placeholder="Silahkan masukkan jam perkuliahan" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Pukul</label>
+            <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
               <option disabled>jeda sesi 50 menit</option>
               <option value="07:00 - 07:50">07:00 - 07:50 </option>
               <option value="07:50 - 08:40">07:50 - 08:40 </option>
@@ -178,30 +153,26 @@ if (!isset($_SESSION['admin'])) {
             <div id="emailHelp" class="form-text" data-aos="fade">contoh : 07.00 - 09.00</div>
           </div>
           <div class="mb-3">
-            <label for="dosen" class="form-label" data-aos="fade-right">Dosen Pengajar</label>
-            <input type="text" class="form-control" id="dosen" name="col_dosen" data-aos="fade-left" placeholder="Silahkan masukkan dosen pengajar" required>
+            <label for="exampleInputtext1" class="form-label" data-aos="fade-right">Ruangan</label>
+            <!-- <input type="text" class="form-control" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan ruangan" required> -->
+            <select type="number" class="form-select" id="exampleInputtext1" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
+              <option value="Ruangan 1">Ruangan 1 </option>
+              <option value="Ruangan 2">Ruangan 2 </option>
+              <option value="Ruangan 3">Ruangan 3 </option>
+              <option value="Ruangan 4">Ruangan 4 </option>
+              <option value="Ruangan 5">Ruangan 5 </option>
+              <option value="Ruangan 6">Ruangan 6</option>
+              <option value="Ruangan 7">Ruangan 7</option>
+              <option value="Ruangan 8">Ruangan 8</option>
+              <option value="Ruangan 9">Ruangan 9</option>
+              <option value="Ruangan 10">Ruangan 10</option>
+              <option value="Ruangan 11">Ruangan 11</option>
+              <option value="Ruangan 17">Ruangan 17</option>
+              <option value="Ruangan 18">Ruangan 18 </option>
+              <option value="Aula Kampus 2">Aula Kampus 2</option>
+            </select>
           </div>
-          <div class="mb-3">
-            <div class="mb-3">
-              <label for="ruangan" class="form-label" data-aos="fade-right">Ruangan</label>
-              <select type="number" class="form-select" id="ruangan" name="col_ruangan" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
-                <option value="Ruangan 1">Ruangan 1 </option>
-                <option value="Ruangan 2">Ruangan 2 </option>
-                <option value="Ruangan 3">Ruangan 3 </option>
-                <option value="Ruangan 4">Ruangan 4 </option>
-                <option value="Ruangan 5">Ruangan 5 </option>
-                <option value="Ruangan 6">Ruangan 6</option>
-                <option value="Ruangan 7">Ruangan 7</option>
-                <option value="Ruangan 8">Ruangan 8</option>
-                <option value="Ruangan 9">Ruangan 9</option>
-                <option value="Ruangan 10">Ruangan 10</option>
-                <option value="Ruangan 11">Ruangan 11</option>
-                <option value="Ruangan 17">Ruangan 17</option>
-                <option value="Ruangan 18">Ruangan 18 </option>
-                <option value="Aula Kampus 2">Aula Kampus 2</option>
-              </select>
-            </div>
-            <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
+          <button type="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
         </form>
       </div>
     </div>
@@ -254,34 +225,6 @@ if (!isset($_SESSION['admin'])) {
 
   <!-- Template Main JS File -->
   <script src="../../../assets/js/main.js"></script>
-
-  <!-- Template Sweet Alert JS File -->
-  <script src="../../../assets/sweetalert/sweetalert2.min.js"></script>
-
-  <?php if (isset($_GET["berhasil"])) : ?>
-    <script>
-      Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: 'Data anda telah dimasukkan!!',
-        iconColor: '#bafb08',
-        confirmButtonColor: '#583fff',
-        confirmButtonText: '&nbsp; OK &nbsp; '
-      });
-    </script>
-  <?php endif ?>
-  <?php if (isset($_GET["gagal"])) : ?>
-    <script>
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal!!',
-        text: 'Ada kesalahan dalam penginputan data!!',
-        confirmButtonColor: '#583fff',
-        confirmButtonText: '&nbsp; OK &nbsp'
-        // footer: '<a href="">Why do I have this issue?</a>'
-      });
-    </script>
-  <?php endif ?>
 </body>
 
 </html>

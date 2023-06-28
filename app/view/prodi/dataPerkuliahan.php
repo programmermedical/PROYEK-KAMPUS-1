@@ -9,10 +9,10 @@ $result = $implements->readDataPerkuliahan($query);
 $implements2 = new Dokumen();
 $result2 = $implements2->selectDokumen();
 
-session_start();
-if (!isset($_SESSION['admin'])) {
-  header('location: ../../../login.php');
-}
+// session_start();
+// if (!isset($_SESSION['admin'])) {
+//   header('location: ../../../login.php');
+// }
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +55,6 @@ if (!isset($_SESSION['admin'])) {
 
 <body style="background: url(../PROYEK-KAMPUS-1/../../../assets/img/hero-bg.png)" ;>
 
-  <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center" style="box-shadow: 0 4px 17px hsla(0, 0%, 0%, 0.507);">
     <div class="container d-flex align-items-center justify-content-between">
       <div>
@@ -65,31 +64,11 @@ if (!isset($_SESSION['admin'])) {
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
-          <li class="dropdown">
-            <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="confirm.php">Konfirmasi</a></li>
-              <li><a href="insert.php">Tambahkan data</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#"><span>Admin</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li class="dropdown">
-                <a href="#admin"><span>Edit Admin</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="admin/update-adminbau.php#admin">Admin BAU</a></li>
-                  <li><a href="admin/update-adminprodi.php#admin"">Admin Prodi</a></li>
-                </ul>
-              </li>
-              <li><a href=" admin/insert-admin.php#admin">Tambahkan admin</a></li>
-                </ul>
-              </li>
-              <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
+          <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
+          <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
+          <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+          <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
     </div>

@@ -70,8 +70,8 @@ include 'function/proses-index.php';
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
-          <li><a class="nav-link scrollto" href="#">Data Perkuliahan</a></li>
-          <li><a class="nav-link scrollto" href="#">Tambahkan Data</a></li>
+          <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
+          <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
           <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>

@@ -24,7 +24,7 @@ if (isset($_POST["submit"])) {
     $dP->setDataDosen($col_dosen);
     $dP->setRuangan($col_ruangan);
     $implements->InsertAll($dP);
-    header('location:dataPerkuliahan.php?berhasil');
+    header('location:dataPerkuliahan.php?berhasilditambahkan');
 } 
 
 // var_dump($col_prodi, $col_tingkat, $col_kelas, $col_matkul, $col_sesi, $col_waktu, $col_dosen, $col_ruangan);

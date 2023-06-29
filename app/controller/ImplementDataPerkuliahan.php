@@ -139,6 +139,26 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
 
         // var_dump($prodi, $tingkat, $kelas, $matkul, $ruangan);
     }
+
+    public function updateDataProdi(DataPerkuliahan $Dp)
+    {
+        $query = "UPDATE prodi, matakuliah SET prodi.nama_prodi = ?, prodi.sesi = ?, prodi.kelas = ?, prodi.tingkat = ?, matakuliah.nama_matkul = ?, matakuliah.nama_dosen = ?, matakuliah.waktu = ? WHERE prodi.id = ? AND matakuliah.id = ? ";
+
+        $stmt = mysqli_prepare($this->conn, $query);
+        $stmt->bind_param("sisisssii", $prodi, $sesi, $kelas, $tingkat, $matkul, $dosen, $waktu, $prodi_id, $matkul_id);
+        $prodi = $Dp->getDataProdi();
+        $sesi = $Dp->getSesi();
+        $kelas = $Dp->getKelas();
+        $tingkat = $Dp->getTingkat();
+        $matkul = $Dp->getDataMatkul();
+        $dosen = $Dp->getDataDosen();
+        $waktu = $Dp->getWaktu();
+        $prodi_id = $_GET['P_id'];
+        $matkul_id = $_GET['M_id'];
+        $stmt->execute();
+        $stmt->close();
+    }
+
     public function deleteDataPerkuliahan($M_id)
     {
         $query = "DELETE FROM matakuliah WHERE id = ?";
@@ -148,10 +168,11 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
         $stmt->execute();
 
         if (!$stmt) {
-            // header('location: dataPerkuliahan.php?gagal');
-            echo "<script>document.location.href='../dataPerkuliahan.php'; alert('gagal menghapus data!!')</script>";
+            header('location: ../dataPerkuliahan.php?gagalhapus');
+            // echo "<script>document.location.href='../dataPerkuliahan.php'; alert('gagal menghapus data!!')</script>";
         } else {
-            echo "<script>document.location.href='../dataPerkuliahan.php'; alert('data berhasil dihapus!!')</script>";
+            // echo "<script>document.location.href='../dataPerkuliahan.php'; alert('data berhasil dihapus!!')</script>";
+            header('location: ../dataPerkuliahan.php?hapus');
         }
     }
     public function readDataPerkuliahan($query)
@@ -191,13 +212,40 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
             if ($stmt2->execute()) {
                 $mataKuliah_id = $stmt2->insert_id;
                 $query = "INSERT INTO ruangan (prodi_id, mataKuliah_id, ruangan) VALUES (?,?,?)";
-                $stmt = mysqli_prepare($this->conn, $query);
-                $stmt->bind_param('iis', $prodi_id, $mataKuliah_id, $ruangan);
+                $stmt3 = mysqli_prepare($this->conn, $query);
+                $stmt3->bind_param('iis', $prodi_id, $mataKuliah_id, $ruangan);
                 $ruangan = $Dp->getRuangan();
-                $stmt->execute();
-                $stmt->close();
+                $stmt3->execute();
+                $stmt3->close();
                 // $this->conn->close();
             }
+        }
+    }
+
+    public function InsertDataProdi(DataPerkuliahan $dP)
+    {
+        if ($this->conn->connect_errno) {
+            die('Koneksi error : ' . $this->conn->connect_errno . ' - ' . $this->conn->connect_error);
+        }
+
+        $query = "INSERT INTO prodi (nama_prodi, sesi, kelas, tingkat) VALUES (?,?,?,?)";
+        $stmt = mysqli_prepare($this->conn, $query);
+        $stmt->bind_param('sisi', $prodi, $sesi, $kelas, $tingkat);
+        $prodi = $dP->getDataProdi();
+        $sesi = $dP->getSesi();
+        $kelas = $dP->getKelas();
+        $tingkat = $dP->getTingkat();
+        if ($stmt->execute()) {
+            $query = "INSERT INTO matakuliah (prodi_id, nama_matkul, nama_dosen, waktu) VALUES (?,?,?,?)";
+            $stmt2 = mysqli_prepare($this->conn, $query);
+            $stmt2->bind_param('isss', $prodi_id, $matkul, $dosen, $waktu);
+            $prodi_id = $stmt->insert_id;
+            $matkul = $dP->getDataMatkul();
+            $dosen = $dP->getDataDosen();
+            $waktu = $dP->getWaktu();
+            $stmt2->execute();
+            $stmt2->close();
+            $stmt->close();
         }
     }
 }

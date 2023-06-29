@@ -24,9 +24,10 @@ if (isset($_POST['login'])) {
         $_SESSION['admin'] = $cekUsername;
         header('location: app/view/bau/index.php');
     } elseif ($cekUsername == $username && $cekPassword == $password && $cekLevel == 'Pegawai') {
+        $_SESSION['pegawai'] = $cekUsername;
         header('location: app/view/prodi/index.php');
     } else {
-        // header('location: login.php?gagal');
-        echo "<script>alert('silahkan cek kembali username dan password anda!!'); document.location.href= 'login.php?'</script>";
+        header('location: login.php?gagal');
+        // echo "<script>alert('silahkan cek kembali username dan password anda!!'); document.location.href= 'login.php?'</script>";
     }
 }

@@ -84,7 +84,7 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+              <li><button class="btn-logout" onclick="confirm('apakah anda ingin keluar dari halaman?')"><a href="proses-logout.php">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

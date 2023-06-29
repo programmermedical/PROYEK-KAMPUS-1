@@ -3,16 +3,16 @@ include '../../controller/ImplementDataPerkuliahan.php';
 include '../../controller/Dokumen.php';
 
 $implements = new implementDataPerkuliahan();
-$query = "SELECT ruangan.prodi_id, ruangan.matakuliah_id, ruangan.id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY waktu ASC";
+$query = "select matakuliah.id, matakuliah.prodi_id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu from matakuliah inner join prodi on prodi.id = matakuliah.prodi_id where prodi.nama_prodi = 'S1 Informatika'";
 $result = $implements->readDataPerkuliahan($query);
 
 $implements2 = new Dokumen();
 $result2 = $implements2->selectDokumen();
 
-// session_start();
-// if (!isset($_SESSION['admin'])) {
-//   header('location: ../../../login.php');
-// }
+session_start();
+if (!isset($_SESSION['pegawai'])) {
+  header('location: ../../../login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ $result2 = $implements2->selectDokumen();
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
           <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-          <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+          <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
@@ -94,9 +94,7 @@ $result2 = $implements2->selectDokumen();
             <th>Sesi perkuliahan ke-</th>
             <th>Pukul</th>
             <th>Dosen Pengajar</th>
-            <th>Ruangan</th>
             <th>Edit</th>
-            <th>Hapus</th>
           </tr>
         </thead>
         <tbody>
@@ -112,49 +110,18 @@ $result2 = $implements2->selectDokumen();
               <td><?= $rest['sesi'] ?></td>
               <td><?= $rest['waktu'] ?></td>
               <td><?= $rest['nama_dosen'] ?></td>
-              <td><?= $rest['ruangan'] ?></td>
-              <td><a href="function/proses-delete.php?id=<?= $rest['matakuliah_id'] ?>"> <button class="btn-option" onclick="confirm('apakah anda ingin menghapus data <?= $rest['nama_prodi'] ?>?')">Hapus</button></a></td>
+              <!-- <td><a href="function/proses-delete.php?id=<?php
+                                                              // $rest['id'] 
+                                                              ?>"> <button class="btn-option" onclick="confirm('apakah anda ingin menghapus data <?php
+                                                                                                                                                  // $rest['nama_prodi'] 
+                                                                                                                                                  ?>
+              ?')">Hapus</button></a></td> -->
 
-              <td><a href="update.php?P_id=<?= $rest['prodi_id'] ?>&M_id=<?= $rest['matakuliah_id'] ?>&R_id=<?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
+              <td><a href="update.php?P_id=<?= $rest['prodi_id'] ?>&M_id=<?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
             </tr>
           <?php endforeach ?>
         </tbody>
-
       </table>
-
-      <section id="edit">
-        <div class="container">
-          <div class="section-title">
-            <!-- <h2 style="color: #fff;" data-aos="fade-up">Dokumen</h2> -->
-            <div class="table-prodi">
-              <h4 style="margin: -22px auto 25px 0;" data-aos="fade-left" style="text-align: left;"> Dokumen</h4>
-              <table class="table1" data-aos="fade-left">
-                <thead>
-                  <tr>
-                    <th style="text-align: left;">Nama</th>
-                    <th style="text-align: left;">File</th>
-                    <th style="text-align: left;">Ukuran</th>
-                    <th colspan="3" width="45px">Fitur</th>
-                    <!-- <th width="15px"><button class="btn-option">Hapus</button></th>
-                    <th width="15px"><button class="btn-option">Edit</button></th>
-                    <th width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></th> -->
-                  </tr>
-                  <?php foreach ($result2 as $rest2) : ?>
-                    <tr>
-                      <td style="text-align: left;"><?= $rest2['nama'] ?></td>
-                      <td style="text-align: left;"><?= $rest2['namaFile'] ?></td>
-                      <td style="text-align: left;"><?= $rest2['size'] ?> Kb</td>
-                      <td width="15px"><a href="proses-hapusdok.php?id=<?= $rest2['id'] ?>"><button class="btn-option" onclick="confirm ('apakah anda akan menghapus dokumen <?= $rest2['nama'] ?>?')">Hapus</button></a> </td>
-                      <td width="15px"><a href="proses-download.php?url=<?= $rest2['berkas'] ?>"><button class="btn-option">Download</button></a></td>
-                      <td width="15px"><a href="upload.php"><button class="btn-option">Tambah</button></a></td>
-                    </tr>
-                  <?php endforeach ?>
-                </thead>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
       <!-- End Update -->
 
       <!-- ======= Footer ======= -->
@@ -210,12 +177,48 @@ $result2 = $implements2->selectDokumen();
       <link href="../../../assets/sweetalert/sweetalert2.min.css" rel="stylesheet" />
       <link href="../../../assets/sweetalert/animate.min.css" rel="stylesheet" />
 
+      <?php if (isset($_GET["berhasilditambahkan"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data telah berhasil ditambahkan!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
       <?php if (isset($_GET["berhasil"])) : ?>
         <script>
           Swal.fire({
             icon: 'success',
             title: 'Berhasil',
-            text: 'Data anda telah dimasukkan!!',
+            text: 'Data telah berhasil diperbarui!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["hapus"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil dihapus!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["hapusdokumen"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Dokumen berhasil dihapus!!',
             iconColor: '#bafb08',
             confirmButtonColor: '#583fff',
             confirmButtonText: '&nbsp; OK &nbsp; '
@@ -228,6 +231,18 @@ $result2 = $implements2->selectDokumen();
             icon: 'error',
             title: 'Gagal!!',
             text: 'Ada kesalahan dalam penginputan data!!',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp'
+            // footer: '<a href="">Why do I have this issue?</a>'
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["gagalhapus"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Gagal!!',
+            text: 'Data gagal dihapus!!',
             confirmButtonColor: '#583fff',
             confirmButtonText: '&nbsp; OK &nbsp'
             // footer: '<a href="">Why do I have this issue?</a>'

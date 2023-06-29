@@ -2,10 +2,10 @@
 include 'proses-update.php';
 include 'proses-updateInsert.php';
 
-// session_start();
-// if (!isset($_SESSION['admin'])) {
-//   header('location: ../../../login.php');
-// }
+session_start();
+if (!isset($_SESSION['pegawai'])) {
+  header('location: ../../../login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +67,7 @@ include 'proses-updateInsert.php';
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
           <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-          <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+          <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
@@ -83,7 +83,7 @@ include 'proses-updateInsert.php';
         <h2 style="color: #fff;">Update Data</h2>
       </div>
       <div class="insert-form" data-aos="fade-up">
-        <form action="proses-update.php?P_id=<?= $_GET['P_id'] ?>&M_id=<?= $_GET['M_id'] ?>&R_id=<?= $_GET['R_id'] ?> " method="post">
+        <form action="proses-update.php?P_id=<?= $_GET['P_id'] ?>&M_id=<?= $_GET['M_id'] ?>" method="post">
           <!-- <input type="text" class="form-control" id="kelas" name="col_id" value="<?= $result['id'] ?>" disabled> -->
           <div class="mb-3">
             <label for="prodi" class="form-label" data-aos="fade-right">Prodi</label>
@@ -165,27 +165,7 @@ include 'proses-updateInsert.php';
             <label for="dosen" class="form-label" data-aos="fade-right">Dosen Pengajar</label>
             <input type="text" class="form-control" id="dosen" name="col_dosen" data-aos="fade-left" placeholder="Silahkan masukkan dosen pengajar" value="<?= $result['nama_dosen'] ?>" required>
           </div>
-          <div class="mb-3">
-            <div class="mb-3">
-              <label for="ruangan" class="form-label" data-aos="fade-right">Ruangan</label>
-              <select type="number" class="form-select" id="ruangan" name="col_ruangan" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
-                <option value="Ruangan 1" <?php echo ($result["ruangan"] == 'Ruangan 1' ? "selected" : "") ?>>Ruangan 1 </option>
-                <option value="Ruangan 2" <?php echo ($result["ruangan"] == 'Ruangan 2' ? "selected" : "") ?>>Ruangan 2 </option>
-                <option value="Ruangan 3" <?php echo ($result["ruangan"] == 'Ruangan 3' ? "selected" : "") ?>>Ruangan 3 </option>
-                <option value="Ruangan 4" <?php echo ($result["ruangan"] == 'Ruangan 4' ? "selected" : "") ?>>Ruangan 4 </option>
-                <option value="Ruangan 5" <?php echo ($result["ruangan"] == 'Ruangan 5' ? "selected" : "") ?>>Ruangan 5 </option>
-                <option value="Ruangan 6" <?php echo ($result["ruangan"] == 'Ruangan 6' ? "selected" : "") ?>>Ruangan 6</option>
-                <option value="Ruangan 7" <?php echo ($result["ruangan"] == 'Ruangan 7' ? "selected" : "") ?>>Ruangan 7</option>
-                <option value="Ruangan 8" <?php echo ($result["ruangan"] == 'Ruangan 8' ? "selected" : "") ?>>Ruangan 8</option>
-                <option value="Ruangan 9" <?php echo ($result["ruangan"] == 'Ruangan 9' ? "selected" : "") ?>>Ruangan 9</option>
-                <option value="Ruangan 10" <?php echo ($result["ruangan"] == 'Ruangan 10' ? "selected" : "") ?>>Ruangan 10</option>
-                <option value="Ruangan 11" <?php echo ($result["ruangan"] == 'Ruangan 11' ? "selected" : "") ?>>Ruangan 11</option>
-                <option value="Ruangan 17" <?php echo ($result["ruangan"] == 'Ruangan 17' ? "selected" : "") ?>>Ruangan 17</option>
-                <option value="Ruangan 18" <?php echo ($result["ruangan"] == 'Ruangan 18' ? "selected" : "") ?>>Ruangan 18 </option>
-                <option value="Aula Kampus 2" <?php echo ($result["ruangan"] == 'Aula Kampus 2' ? "selected" : "") ?>>Aula Kampus 2</option>
-              </select>
-            </div>
-            <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
+          <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Edit</button>
         </form>
       </div>
     </div>

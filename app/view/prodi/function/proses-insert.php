@@ -10,7 +10,6 @@ if (isset($_POST["submit"])) {
     $col_sesi = htmlspecialchars($_POST["col_sesi"]);
     $col_waktu = htmlspecialchars($_POST["col_waktu"]);
     $col_dosen = htmlspecialchars($_POST["col_dosen"]);
-    $col_ruangan = htmlspecialchars($_POST["col_ruangan"]);
 
 
     $implements = new implementDataPerkuliahan();
@@ -22,8 +21,7 @@ if (isset($_POST["submit"])) {
     $dP->setSesi($col_sesi);
     $dP->setWaktu($col_waktu);
     $dP->setDataDosen($col_dosen);
-    $dP->setRuangan($col_ruangan);
-    $implements->InsertAll($dP);
+    $implements->InsertDataProdi($dP);
 } else {
     header('location:../insert.php?gagal');
 }

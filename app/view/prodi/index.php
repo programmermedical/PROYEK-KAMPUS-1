@@ -1,10 +1,10 @@
 <?php
 include 'function/proses-index.php';
 
-// session_start();
-// if (!isset($_SESSION['admin'])) {
-//   header('location: ../../../login.php');
-// }
+session_start();
+if (!isset($_SESSION['pegawai'])) {
+  header('location: ../../../login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ include 'function/proses-index.php';
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
           <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-          <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+          <li><button class="btn-logout" onclick="confirm('apakah anda ingin keluar dari halaman?')"><a href="proses-logout.php">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
@@ -239,7 +239,10 @@ include 'function/proses-index.php';
   <!-- Template Main JS File -->
   <script src="../../../assets/js/main.js"></script>
 
+  <!-- Template Main JS File -->
+  <script src="../../../assets/jquery/code.jquery.min.js"></script>
   <!-- Template Sweet Alert JS File -->
+
   <script src="../../../assets/sweetalert/sweetalert2.min.js"></script>
 
   <!-- Template Main SweeAlert -->
@@ -269,6 +272,7 @@ include 'function/proses-index.php';
         // footer: '<a href="">Why do I have this issue?</a>'
       });
     </script>
+
   <?php endif ?>
 </body>
 

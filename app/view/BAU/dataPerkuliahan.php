@@ -87,7 +87,7 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+              <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -231,12 +231,48 @@ if (!isset($_SESSION['admin'])) {
       <link href="../../../assets/sweetalert/sweetalert2.min.css" rel="stylesheet" />
       <link href="../../../assets/sweetalert/animate.min.css" rel="stylesheet" />
 
+      <?php if (isset($_GET["berhasilditambahkan"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data telah berhasil ditambahkan!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
       <?php if (isset($_GET["berhasil"])) : ?>
         <script>
           Swal.fire({
             icon: 'success',
             title: 'Berhasil',
-            text: 'Data anda telah dimasukkan!!',
+            text: 'Data telah berhasil diperbarui!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["hapus"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Data berhasil dihapus!!',
+            iconColor: '#bafb08',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp; '
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["hapusdokumen"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: 'Dokumen berhasil dihapus!!',
             iconColor: '#bafb08',
             confirmButtonColor: '#583fff',
             confirmButtonText: '&nbsp; OK &nbsp; '
@@ -249,6 +285,18 @@ if (!isset($_SESSION['admin'])) {
             icon: 'error',
             title: 'Gagal!!',
             text: 'Ada kesalahan dalam penginputan data!!',
+            confirmButtonColor: '#583fff',
+            confirmButtonText: '&nbsp; OK &nbsp'
+            // footer: '<a href="">Why do I have this issue?</a>'
+          });
+        </script>
+      <?php endif ?>
+      <?php if (isset($_GET["gagalhapus"])) : ?>
+        <script>
+          Swal.fire({
+            icon: 'error',
+            title: 'Gagal!!',
+            text: 'Data gagal dihapus!!',
             confirmButtonColor: '#583fff',
             confirmButtonText: '&nbsp; OK &nbsp'
             // footer: '<a href="">Why do I have this issue?</a>'

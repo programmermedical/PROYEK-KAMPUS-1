@@ -1,8 +1,8 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['admin'])) {
-//   header('location: ../../../login.php');
-// }
+session_start();
+if (!isset($_SESSION['pegawai'])) {
+  header('location: ../../../login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
           <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-          <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+          <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
       <!-- .navbar -->
@@ -161,27 +161,7 @@
             <label for="dosen" class="form-label" data-aos="fade-right">Dosen Pengajar</label>
             <input type="text" class="form-control" id="dosen" name="col_dosen" data-aos="fade-left" placeholder="Silahkan masukkan dosen pengajar" required>
           </div>
-          <div class="mb-3">
-            <div class="mb-3">
-              <label for="ruangan" class="form-label" data-aos="fade-right">Ruangan</label>
-              <select type="number" class="form-select" id="ruangan" name="col_ruangan" data-aos="fade-left" placeholder="Silahkan masukkan pukul perkuliahan" required>
-                <option value="Ruangan 1">Ruangan 1 </option>
-                <option value="Ruangan 2">Ruangan 2 </option>
-                <option value="Ruangan 3">Ruangan 3 </option>
-                <option value="Ruangan 4">Ruangan 4 </option>
-                <option value="Ruangan 5">Ruangan 5 </option>
-                <option value="Ruangan 6">Ruangan 6</option>
-                <option value="Ruangan 7">Ruangan 7</option>
-                <option value="Ruangan 8">Ruangan 8</option>
-                <option value="Ruangan 9">Ruangan 9</option>
-                <option value="Ruangan 10">Ruangan 10</option>
-                <option value="Ruangan 11">Ruangan 11</option>
-                <option value="Ruangan 17">Ruangan 17</option>
-                <option value="Ruangan 18">Ruangan 18 </option>
-                <option value="Aula Kampus 2">Aula Kampus 2</option>
-              </select>
-            </div>
-            <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
+          <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
         </form>
       </div>
     </div>

@@ -10,6 +10,6 @@ if ($id = $_GET['P_id']) {
 
     $query = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY waktu ASC";
 
-    $rst = $implements->readSingleData($id);
+    $rst = $implements->readSingleData2($id);
     $result = mysqli_fetch_assoc($rst);
 }

@@ -3,6 +3,11 @@
 // include 'proses-confirm.php';
 include 'proses-confirm.php';
 include 'proses-confirmInsert.php';
+
+session_start();
+if (!isset($_SESSION['admin'])) {
+  header('location: ../../../login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +89,7 @@ include 'proses-confirmInsert.php';
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="#logout">Logout</a></button></li>
+              <li><button class="btn-logout"><a href="#logout" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

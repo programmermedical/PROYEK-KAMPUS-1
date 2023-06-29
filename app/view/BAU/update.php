@@ -87,7 +87,7 @@ if (!isset($_SESSION['admin'])) {
                 </ul>
               </li>
               <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
-              <li><button class="btn-logout"><a href="proses-logout.php">Logout</a></button></li>
+              <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['admin'])) {
                 <option value="Aula Kampus 2" <?php echo ($result["ruangan"] == 'Aula Kampus 2' ? "selected" : "") ?>>Aula Kampus 2</option>
               </select>
             </div>
-            <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Tambah</button>
+            <button type="submit" name="submit" class="btn-submit" data-aos="fade-up">Edit</button>
         </form>
       </div>
     </div>

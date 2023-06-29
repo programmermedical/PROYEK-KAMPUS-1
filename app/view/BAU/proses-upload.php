@@ -29,10 +29,10 @@ if (in_array($ekstensiFile, $ekstensiAccept) == TRUE) :
     $insertData = new Dokumen();
     $insertData->uploadData($dataArr);
     if ($upload && ($insertData == 1)) {
-        // header('location: dataPerkuliahan.php?berhasil');
-        echo "<script>document.location.href='dataPerkuliahan.php'; alert('dokumen berhasil di tambahkan!!')</script>";
+        header('location: dataPerkuliahan.php?berhasilditambahkan');
+        // echo "<script>document.location.href='dataPerkuliahan.php'; alert('dokumen berhasil di tambahkan!!')</script>";
     } else {
-        // header('location: dataPerkuliahan.php?gagal');
+        header('location: dataPerkuliahan.php?gagal');
         echo "<script>document.location.href='dataPerkuliahan.php'; alert('gagal menambahkan dokumen!!')</script>";
     }
 

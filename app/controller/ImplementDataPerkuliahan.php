@@ -175,6 +175,23 @@ class implementDataPerkuliahan extends Config implements InterfaceDataPerkuliaha
             header('location: ../dataPerkuliahan.php?hapus');
         }
     }
+
+    public function deleteDataPerkuliahanProdi($M_id)
+    {
+        $query = "DELETE FROM matakuliah WHERE matakuliah.id = ?";
+        $stmt = mysqli_prepare($this->conn, $query);
+        $stmt->bind_param('i', $id);
+        $id = $M_id;
+        $stmt->execute();
+
+        if (!$stmt) {
+            header('location: ../dataPerkuliahan.php?gagalhapus');
+            // echo "<script>document.location.href='../dataPerkuliahan.php'; alert('gagal menghapus data!!')</script>";
+        } else {
+            // echo "<script>document.location.href='../dataPerkuliahan.php'; alert('data berhasil dihapus!!')</script>";
+            header('location: ../dataPerkuliahan.php?hapus');
+        }
+    }
     public function readDataPerkuliahan($query)
     {
         // $query = '';

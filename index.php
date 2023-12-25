@@ -1,13 +1,13 @@
 <?php
-include 'app/controller/ImplementDataPerkuliahan.php';
-include 'app/controller/Dokumen.php';
+require_once 'app/controller/ImplementDataPerkuliahan.php';
+require_once 'app/controller/Dokumen.php';
 
 $implements1 = new implementDataPerkuliahan();
 
 $query1 = "SELECT * FROM tahunajaran";
 $result1 = $implements1->readDataPerkuliahan($query1);
 
-$query2 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id";
+$query2 = "SELECT prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu, ruangan.ruangan FROM ruangan INNER JOIN prodi ON prodi.id = ruangan.prodi_id INNER JOIN matakuliah ON matakuliah.id = ruangan.matakuliah_id ORDER BY prodi.nama_prodi ASC";
 
 $result2 = $implements1->readDataPerkuliahan($query2);
 
@@ -70,7 +70,7 @@ $xpl = end($x);
       <h1 data-aos="zoom-in">Selamat datang di sistem penjadwalan ruang perkuliahan <br> Kampus
         1 <br> ITSK RS dr. Soepraoen
       </h1>
-      <h2 data-aos="fade-up" data-aos-delay="200" style="margin-top: -15px;">BADAN ADMINISTRASI UMUM KAMPUS 1
+      <h2 data-aos="fade-up" data-aos-delay="200" style="margin-top: -15px;">BIRO ADMINISTRASI UMUM KAMPUS 1
       </h2>
       <button class="btn-login" data-aos="fade-up" data-aos-delay="200"><a href="login.php">Login</a></button>
     </div>

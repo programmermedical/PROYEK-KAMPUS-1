@@ -94,6 +94,7 @@ if (!isset($_SESSION['pegawai'])) {
             <th>Sesi perkuliahan ke-</th>
             <th>Pukul</th>
             <th>Dosen Pengajar</th>
+            <th>Hapus</th>
             <th>Edit</th>
           </tr>
         </thead>
@@ -110,13 +111,7 @@ if (!isset($_SESSION['pegawai'])) {
               <td><?= $rest['sesi'] ?></td>
               <td><?= $rest['waktu'] ?></td>
               <td><?= $rest['nama_dosen'] ?></td>
-              <!-- <td><a href="function/proses-delete.php?id=<?php
-                                                              // $rest['id'] 
-                                                              ?>"> <button class="btn-option" onclick="confirm('apakah anda ingin menghapus data <?php
-                                                                                                                                                  // $rest['nama_prodi'] 
-                                                                                                                                                  ?>
-              ?')">Hapus</button></a></td> -->
-
+              <td><a href="function/proses-delete.php?P_id = <?= $rest['prodi_id'] ?>&M_id=<?= $rest['id'] ?>"><button class="btn-option">Hapus</button></a></td>
               <td><a href="update.php?P_id=<?= $rest['prodi_id'] ?>&M_id=<?= $rest['id'] ?>"><button class="btn-option">Edit</button></a></td>
             </tr>
           <?php endforeach ?>

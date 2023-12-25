@@ -80,7 +80,7 @@ if (!isset($_SESSION['pegawai'])) {
   <section id="insert">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2 style="color: #fff;">Update Data</h2>
+        <h2 style="color: #fff;">Edit Data</h2>
       </div>
       <div class="insert-form" data-aos="fade-up">
         <form action="proses-update.php?P_id=<?= $_GET['P_id'] ?>&M_id=<?= $_GET['M_id'] ?>" method="post">

@@ -65,7 +65,7 @@ class ReadData extends implementDataPerkuliahan
 
     public function readAllDataProdi($namaProdi)
     {
-        $this->query1 = "select matakuliah.id, matakuliah.prodi_id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu from matakuliah inner join prodi on prodi.id = matakuliah.prodi_id where prodi.nama_prodi = '$namaProdi'";
+        $this->query1 = "SELECT matakuliah.id, matakuliah.prodi_id, prodi.nama_prodi, prodi.sesi, prodi.kelas, prodi.tingkat, matakuliah.nama_matkul, matakuliah.nama_dosen, matakuliah.waktu FROM matakuliah INNER JOIN prodi ON prodi.id = matakuliah.prodi_id WHERE prodi.nama_prodi = '$namaProdi' ORDER BY matakuliah.id DESC";
 
         $stmt = mysqli_query($this->conn, $this->query1);
         $querys = mysqli_fetch_assoc($stmt);

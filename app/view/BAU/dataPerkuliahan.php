@@ -67,7 +67,7 @@ if (!isset($_SESSION['admin'])) {
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
-            <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
+            <a href="#edit"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="confirm.php">Konfirmasi</a></li>
               <li><a href="insert.php">Tambahkan data</a></li>
@@ -144,7 +144,7 @@ if (!isset($_SESSION['admin'])) {
       </table>
 
       <section id="edit">
-        <div class="container">
+        <div class="container" id="edit">
           <div class="section-title">
             <!-- <h2 style="color: #fff;" data-aos="fade-up">Dokumen</h2> -->
             <div class="table-prodi">

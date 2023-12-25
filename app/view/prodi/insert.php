@@ -63,7 +63,7 @@ if (!isset($_SESSION['pegawai'])) {
         <ul>
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php">Data Perkuliahan</a></li>
-          <li><a class="nav-link scrollto" href="insert.php">Tambahkan Data</a></li>
+          <li><a class="nav-link scrollto" href="insert.php#insert">Tambahkan Data</a></li>
           <li><a class="nav-link scrollto" href="#informasi">Informasi</a></li>
           <li><button class="btn-logout"><a href="proses-logout.php" onclick="confirm('apakah anda ingin keluar dari halaman?')">Logout</a></button></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -77,7 +77,7 @@ if (!isset($_SESSION['pegawai'])) {
   <section id="insert">
     <div class="container">
       <div class="section-title" data-aos="fade-up">
-        <h2 style="color: #fff;">Insert data</h2>
+        <h2 style="color: #fff;">Tambahkan data</h2>
       </div>
       <div class="insert-form" data-aos="fade-up">
         <form action="function/proses-insert.php" method="post">

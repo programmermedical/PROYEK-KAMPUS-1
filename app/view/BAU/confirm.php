@@ -60,9 +60,9 @@ if (!isset($_SESSION['admin'])) {
           <li><a class="nav-link scrollto" href="index.php#home">Home</a></li>
           <li><a class="nav-link scrollto" href="dataPerkuliahan.php#edit">Data Perkuliahan</a></li>
           <li class="dropdown">
-            <a href="#"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
+            <a href="#konfirmasi"><span>Data Prodi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="confirm.php">Konfirmasi</a></li>
+              <li><a href="confirm.php#konfirmasi">Konfirmasi</a></li>
               <li><a href="insert.php">Tambahkan data</a></li>
             </ul>
           </li>

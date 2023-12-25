@@ -13,14 +13,15 @@ $ukuranFile = $_FILES['berkas']['size'];
 $file_tmp = $_FILES['berkas']['tmp_name'];
 
 $dirUpload = '../../document/';
-$linkBerkas = $dirUpload . $namaFile;
+$defaultName = 'Rekapitulasi jadwal ruangan perkuliahan kampus 1' . '.' . $ekstensiFile;
+$linkBerkas = $dirUpload . $defaultName;
 
 if (in_array($ekstensiFile, $ekstensiAccept) == TRUE) :
     if ($ukuranFile < 1080 * 1080) :
         $upload = move_uploaded_file($file_tmp, $linkBerkas);
         $dataArr = array(
             'nama' => $nama,
-            'namaFile' => $namaFile,
+            'namaFile' => $defaultName,
             'size' => $ukuranFile,
             'berkas' => $linkBerkas
         );
